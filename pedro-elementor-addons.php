@@ -56,7 +56,13 @@ final class Pedro_Elementor_Addons{
      * 
      */
     private function __construct(){
-        $this->define_constants();
+
+        if ( did_action( 'elementor/loaded' ) ) {
+            add_action( 'plugins_loaded', array( $this, 'plugin_init' ) );
+        } else {
+            add_action( 'admin_notices', array( $this, 'elementor_required_error' ) );
+        }
+
     }
 
 
@@ -68,9 +74,38 @@ final class Pedro_Elementor_Addons{
     public function define_constants(){
         define('PEA_VERSION', '1.0.0');
         define('PEA_PLUGIN_PATH',    plugins_url( '/', __FILE__ ));
-        define('PEA_DIR_PATH',       trailingslashit(plugins_dir_path(__FILE__ )));
         define('PEA_THEME_DIR_PATH', plugins_url( '/', __FILE__ ));
     }
+
+
+    /**
+     * plugin initialize
+     * 
+     * @access public
+     */
+    public function plugin_init(){
+      $this->file_includes();
+    }
+
+    /**
+     * files includes
+     * 
+     * @access public
+     */
+    public function file_includes(){
+     require_once __DIR__ . '/inc/pea-register-widget.php';
+    }
+
+
+    /**
+     * elementor requred error 
+     * 
+     * @access public
+     */
+    public function elementor_required_error(){
+     
+    }
+
 }
 
 Pedro_Elementor_Addons::getInstance();
