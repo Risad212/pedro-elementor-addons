@@ -93,6 +93,7 @@ final class Pedro_Elementor_Addons{
      */
     public function file_includes(){
      require_once __DIR__ . '/inc/pea-register-widget.php';
+     require_once __DIR__ . '/inc/pea-scripts.php';
     }
 
 
