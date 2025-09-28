@@ -56,7 +56,6 @@ final class Pedro_Elementor_Addons{
      * 
      */
     private function __construct(){
-
         if ( did_action( 'elementor/loaded' ) ) {
             add_action( 'plugins_loaded', array( $this, 'plugin_init' ) );
         } else {
@@ -103,7 +102,7 @@ final class Pedro_Elementor_Addons{
      * @access public
      */
     public function elementor_required_error(){
-     
+      
     }
 
 }
