@@ -57,7 +57,7 @@ class Pedro_Elementor_Addons {
 	public function register_widgets( $widgets_manager ) {
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
 
-		$widgets_manager->register( new Widgets\Pea_Testimonial() );
+		$widgets_manager->register( new \Pea_Testimonial() );
 	}
 
 	 /**
@@ -109,7 +109,7 @@ class Pedro_Elementor_Addons {
         $this->define_constant();
 
 		// Register widget scripts
-		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
+		// add_action( 'elementor/frontend/after_register_scripts', [ $this, 'widget_scripts' ] );
 
 		// Register widgets
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
