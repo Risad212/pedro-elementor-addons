@@ -6,7 +6,7 @@ use \Elementor\Utils;
 use \Elementor\Group_Control_Image_Size;
 
 
-class PEA_Testimonial extends Widget_Base {
+class Pea_Testimonial extends Widget_Base {
 
 	public function get_name(){
 		return 'pea_testimonial';
