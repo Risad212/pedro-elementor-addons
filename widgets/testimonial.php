@@ -1,8 +1,9 @@
 <?php
+use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Typography;
-use \Elementor\Utils;
+use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Image_Size;
 
 
@@ -53,7 +54,7 @@ class Pea_Testimonial extends Widget_Base {
 		$this->add_control(
 			'client_image',
 			[
-				'label' => esc_html__( 'Choose Image', 'elementor' ),
+				'label' => esc_html__( 'Choose Image', 'pedro-elementor-addons' ),
 				'type' => Controls_Manager::MEDIA,
 				'dynamic' => [
 					'active' => true,
@@ -76,7 +77,7 @@ class Pea_Testimonial extends Widget_Base {
 		$this->add_control(
 			'client_name',
 			[
-				'label' => esc_html__( 'Name', 'elementor' ),
+				'label' => esc_html__( 'Name', 'pedro-elementor-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -84,14 +85,14 @@ class Pea_Testimonial extends Widget_Base {
 				'ai' => [
 					'active' => false,
 				],
-				'default' => esc_html__( 'Ema Watson', 'elementor' ),
+				'default' => esc_html__( 'Ema Watson', 'pedro-elementor-addons' ),
 			]
 		);
 
        $this->add_control(
 			'client_designation',
 			[
-				'label' => esc_html__( 'Title', 'elementor' ),
+				'label' => esc_html__( 'Title', 'pedro-elementor-addons' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -99,25 +100,25 @@ class Pea_Testimonial extends Widget_Base {
 				'ai' => [
 					'active' => false,
 				],
-				'default' => esc_html__( 'WP Developer', 'elementor' ),
+				'default' => esc_html__( 'WP Developer', 'pedro-elementor-addons' ),
 			]
 		);
 
-			$aside = is_rtl() ? 'right' : 'left';
+		$aside = is_rtl() ? 'right' : 'left';
 
 		$this->add_control(
 			'testimonial_image_position',
 			[
-				'label' => esc_html__( 'Image Position', 'elementor' ),
+				'label' => esc_html__( 'Image Position', 'pedro-elementor-addons' ),
 				'type' => Controls_Manager::CHOOSE,
 				'default' => 'aside',
 				'options' => [
 					'aside' => [
-						'title' => esc_html__( 'Aside', 'elementor' ),
+						'title' => esc_html__( 'Aside', 'pedro-elementor-addons' ),
 						'icon' => 'eicon-h-align-' . $aside,
 					],
 					'top' => [
-						'title' => esc_html__( 'Top', 'elementor' ),
+						'title' => esc_html__( 'Top', 'pedro-elementor-addons' ),
 						'icon' => 'eicon-v-align-top',
 					],
 				],
@@ -133,20 +134,20 @@ class Pea_Testimonial extends Widget_Base {
 		$this->add_responsive_control(
 			'testimonial_alignment',
 			[
-				'label' => esc_html__( 'Alignment', 'elementor' ),
+				'label' => esc_html__( 'Alignment', 'pedro-elementor-addons' ),
 				'type' => Controls_Manager::CHOOSE,
 				'default' => 'center',
 				'options' => [
 					'left'    => [
-						'title' => esc_html__( 'Left', 'elementor' ),
+						'title' => esc_html__( 'Left', 'pedro-elementor-addons' ),
 						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
-						'title' => esc_html__( 'Center', 'elementor' ),
+						'title' => esc_html__( 'Center', 'pedro-elementor-addons' ),
 						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
-						'title' => esc_html__( 'Right', 'elementor' ),
+						'title' => esc_html__( 'Right', 'pedro-elementor-addons' ),
 						'icon' => 'eicon-text-align-right',
 					],
 				],
@@ -157,9 +158,152 @@ class Pea_Testimonial extends Widget_Base {
 			]
 		);
 		
-
 		$this->end_controls_section();
         
+	   // style content
+	   $this->start_controls_section(
+			'style_content',
+			[
+				'label' => esc_html__( 'Content', 'pedro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'content_color',
+			[
+				'label'     => esc_html__( 'Text Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .your-class' => 'color: {{VALUE}}',
+				],
+			]
+		);
+	
+	    $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'content_typography',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'text_shadow',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+		
+		$this->end_controls_section();
+
+		// style image
+		 $this->start_controls_section(
+			'style_image',
+			[
+				'label' => esc_html__( 'Image', 'pedro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'image_size',
+			[
+				'label'      => esc_html__( 'Width', 'textdomain' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
+				'range' => [
+					'px' => [
+						'min' => 20,
+						'max' => 200,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .your-class' => 'width: {{SIZE}}{{UNIT}};',
+				]
+			]
+		);
+
+        $this->end_controls_section();
+
+
+		// style image
+		 $this->start_controls_section(
+			'style_name',
+			[
+				'label' => esc_html__( 'Name', 'pedro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'name_color',
+			[
+				'label'     => esc_html__( 'Text Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .your-class' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'name_typography',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'name_text_shadow',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+
+		$this->end_controls_section();
+
+		// designation style
+		$this->start_controls_section(
+			'designation_section',
+			[
+				'label' => esc_html__( 'Designation', 'textdomain' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'designation_text_color',
+			[
+				'label'     => esc_html__( 'Text Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .your-class' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'designation_typography',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'designation_text_shadow',
+				'selector' => '{{WRAPPER}} .your-class',
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 	protected function render(): void {
