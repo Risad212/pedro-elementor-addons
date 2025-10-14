@@ -34,8 +34,12 @@ class Plugin {
      * @access public
      */
 	public function register_widgets( $widgets_manager ) {
+
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
+		require_once PEA_PLUGIN_PATH . 'widgets/blog.php';
+
 		$widgets_manager->register( new \Pea_Testimonial() );
+		$widgets_manager->register( new \Pea_Blog() );
 	}
 
 	 /**
@@ -49,7 +53,7 @@ class Plugin {
 		$elements_manager->add_category(
 			'pedro',
 			[
-				'title' => __( 'Pedro', 'pedro-elementor-addons' ),
+				'title' => __( 'Pedro', 'pedro-elementor-addons' ), 
 			]
 		);
 	}

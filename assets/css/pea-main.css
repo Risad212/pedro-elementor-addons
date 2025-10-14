@@ -87,3 +87,77 @@
 .pea-swiper-pagination .swiper-pagination-bullet-active{
   background: #000;
 }
+
+/*==========================================
+   Pea Blog Grid
+==========================================*/
+.pea-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 50px 0;
+}
+
+.pea-blog-grid .pea-blog-card {
+  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 15px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.pea-blog-grid .pea-blog-img {
+  overflow: hidden;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.pea-blog-grid .pea-blog-img a img {
+  width: 100%;
+  transition: 0.4s ease;
+}
+
+.pea-blog-grid .pea-blog-img:hover a img {
+  transform: scale(1.2);
+}
+
+.pea-blog-grid .pea-card-body {
+  padding: 20px 30px;
+}
+
+.pea-blog-grid .pea-cart-top {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+  font-size: 14px;
+  color: #777;
+  align-items: center;
+}
+
+.pea-blog-grid .pea-card-body .pea-author svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+  fill: #777;
+}
+
+.pea-blog-grid .pea-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.pea-blog-grid .pea-title a {
+  color: #222;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.pea-blog-grid .pea-title a:hover {
+  color: var(--primary-color);
+}
+
+.pea-blog-grid .pea-card-body p {
+  color: #4c4c4d;
+  margin-top: 18px;
+  line-height: 1.6;
+}
