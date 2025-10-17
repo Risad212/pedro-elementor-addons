@@ -85,6 +85,18 @@ class Plugin {
 		wp_enqueue_script( 'reskill-elementor-editor', PEA_PLUGIN_URL . 'assets/js/editor.min.js', ['elementor-editor','jquery'], '1.0.0', true);
 	}
 
+	/**
+	 * Elementor Css Files
+	 * 
+	 * @since 1.0.0
+	 * 
+	 * @access public 
+	 */
+	public function enqueue_editor_styles() {
+      wp_enqueue_style( 'pea-editor-css', PEA_PLUGIN_URL . 'assets/css/pea-editor.css', [], '1.0.0','all');
+    }
+
+
 
 	/**
 	 *  Plugin class constructor
@@ -107,8 +119,11 @@ class Plugin {
 		// Enqueue scripts for widgets
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 
-		// // Enqueue scripts for Elementor Editor
+		// Enqueue scripts for Elementor Editor
 		add_action( 'elementor/editor/after_enqueue_scripts', [$this, 'enqueue_editor_scripts']);
+
+		// Enqueue style for Elemetnor Editor
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
 	}
 }
 

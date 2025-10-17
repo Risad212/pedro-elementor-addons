@@ -18,7 +18,7 @@ class Pea_Blog extends Widget_Base {
 	}
 
 	public function get_icon(): string {
-		return 'eicon-posts-grid';
+		return 'eicon-posts-grid  pedro-elementor-icon';
 	}
 
 	public function get_categories(): array {

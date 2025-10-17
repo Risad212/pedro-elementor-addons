@@ -1,0 +1,14 @@
+.pedro-elementor-icon {
+  position: relative;
+}
+
+.pedro-elementor-icon::after {
+  content: "Pedro";
+  position: absolute;
+  right: -44px;
+  font-size: 10px;
+  top: -10px;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+}

@@ -18,7 +18,7 @@ class Pea_Testimonial extends Widget_Base {
 	}
 
 	public function get_icon(): string {
-		return 'eicon-testimonial';
+		return 'eicon-testimonial pedro-elementor-icon';
 	}
 
 	public function get_categories(): array {
