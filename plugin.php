@@ -66,11 +66,11 @@ class Plugin {
      * @access public
      */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'pea-swiper-css', PEA_PLUGIN_PATH . 'assets/css/pea-swiper-bundle.min.css', [], '1.0.0', 'all' );
-		wp_enqueue_style( 'pea-main-css',   PEA_PLUGIN_PATH . 'assets/css/pea-main.css', [], '1.0.0', 'all' );
+		wp_enqueue_style( 'pea-swiper-css', PEA_PLUGIN_URL . 'assets/css/pea-swiper-bundle.min.css', [], '1.0.0', 'all' );
+		wp_enqueue_style( 'pea-main-css',   PEA_PLUGIN_URL . 'assets/css/pea-main.css', [], '1.0.0', 'all' );
 
-		wp_enqueue_script( 'pea-swiper-js', PEA_PLUGIN_PATH . 'assets/js/pea-swiper-bundle.min.js', [ 'jquery' ], '1.0.0', true );
-		wp_enqueue_script( 'pea-main-js',   PEA_PLUGIN_PATH . 'assets/js/pea-main.js', ['jquery'], '1.0.0', true );
+		wp_enqueue_script( 'pea-swiper-js', PEA_PLUGIN_URL . 'assets/js/pea-swiper-bundle.min.js', [ 'jquery' ], '1.0.0', true );
+		wp_enqueue_script( 'pea-main-js',   PEA_PLUGIN_URL . 'assets/js/pea-main.js', ['jquery'], '1.0.0', true );
 
 	}
 
