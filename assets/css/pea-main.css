@@ -92,6 +92,175 @@
 }
 
 /*==========================================
+   Timeline
+==========================================*/
+
+.pea-main-timeline {
+  padding: 30px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.pea-main-timeline:before {
+  content: '';
+  width: 7px;
+  height: 100px;
+  background: #404040;
+  margin: 0 auto;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+}
+
+.pea-main-timeline .pea-timeline {
+  width: 50%;
+  float: left;
+  padding: 20px 60px;
+  border-top: 7px solid #404040;
+  border-right: 7px solid #404040;
+  border-radius: 0 30px 0 0;
+  position: relative;
+  right: -3.5px;
+}
+
+.pea-main-timeline .pea-icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background: #000;
+  border: 1px solid white;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  box-shadow: 0 0 0 2px #000;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+  padding: 6px;
+}
+
+.pea-main-timeline .pea-icon svg{
+  width: 35px;
+  height: 35px;
+  fill: #fff;
+}
+
+.pea-main-timeline .pea-timeline-content {
+  display: block;
+  padding: 20px 10px 10px;
+  border-radius: 20px;
+  background: #fff;
+  color: #000;
+  position: relative;
+  text-decoration: none;
+  -webkit-box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
+  -moz-box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
+  box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -ms-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.pea-main-timeline .pea-timeline-content:hover {
+  text-decoration: none;
+}
+
+.pea-main-timeline .pea-timeline-content:before,
+.pea-main-timeline .pea-timeline-content:after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 50px;
+  border-radius: 10px;
+  background: #404040;
+  border: 1px solid white;
+  position: absolute;
+  top: -35px;
+  left: 50px;
+}
+
+.pea-main-timeline .pea-timeline-content:after {
+  left: auto;
+  right: 50px;
+}
+
+.pea-main-timeline .pea-title {
+  font-size: 22px;
+  margin: 0;
+  color: #000;
+  transition: all 0.5s ease 0s;
+}
+
+.pea-main-timeline .pea-title-text {
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  padding: 3px 0;
+  color: #16a085;
+  text-transform: capitalize;
+}
+
+.pea-main-timeline .pea-description {
+  padding: 7px;
+  margin: 0;
+  padding-top: 0px;
+}
+
+.pea-main-timeline .pea-timeline:nth-child(2n) {
+  border-right: none;
+  border-left: 7px solid #404040;
+  border-radius: 30px 0 0 0;
+  right: auto;
+  left: -4px;
+}
+
+.pea-main-timeline .pea-timeline:nth-child(2n) .pea-icon {
+  left: auto;
+  right: 0;
+}
+
+.pea-main-timeline .pea-timeline:nth-child(2n) {
+  margin-top: 130px;
+}
+
+.pea-main-timeline .pea-timeline:nth-child(odd) {
+  margin-top: -130px 0 30px 0;
+}
+
+.pea-main-timeline .pea-timeline:nth-child(even) {
+  margin-bottom: 80px;
+}
+
+.pea-main-timeline .pea-timeline:first-child,
+.pea-main-timeline .pea-timeline:last-child:nth-child(even) {
+  margin-top: 0 0 30px 0;
+}
+
+.pea-main-timeline .pea-timeline:nth-child(2) {
+  margin-bottom: -27px;
+}
+
+.pea-timeline:hover .pea-icon {
+  background: #16a085;
+  box-shadow: 0 0 0 2px #16a085;
+  border: 1px solid #16a085;
+}
+
+.pea-timeline:hover .pea-title {
+  color: #16a085;
+}
+
+.pea-timeline:hover .pea-title-text {
+  color: #000;
+}
+
+
+/*==========================================
    Pea Blog Grid
 ==========================================*/
 .pea-blog-grid {

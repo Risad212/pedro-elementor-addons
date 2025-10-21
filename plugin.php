@@ -36,10 +36,10 @@ class Plugin {
 	public function register_widgets( $widgets_manager ) {
 
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
-		// require_once PEA_PLUGIN_PATH . 'widgets/blog.php';
+		require_once PEA_PLUGIN_PATH . 'widgets/timeline.php';
 
 		$widgets_manager->register( new \Pea_Testimonial() );
-		// $widgets_manager->register( new \Pea_Blog() );
+		$widgets_manager->register( new \Pea_Timeline() );
 	}
 
 	 /**
