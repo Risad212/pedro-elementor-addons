@@ -31,14 +31,41 @@ class Pea_Blog extends Widget_Base {
 
 	// Start content contorls
 	protected function register_controls(){
+        
+      $this->start_controls_section(
+			'content_section',
+			[
+				'label' => esc_html__( 'Content', 'textdomain' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
 
+		$this->add_control(
+			'post_number',
+			[
+				'label'   => esc_html__( 'Number Of Post', 'textdomain' ),
+				'type'    => Controls_Manager::NUMBER,
+                'default' => 3,
+			]
+		);
+
+     $this->end_controls_section();
     }
 
   protected function render(): void {
 
+    $settings = $this->get_settings_for_display();
+    
+    if( empty( $settings['post_number'] ) ){
+        return;
+    }
+
+    $number_of_post = $settings['post_number'];
+
+    
     $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => 3,
+        'post_type'      => 'post',
+        'posts_per_page' => $number_of_post,
     );
 
     $pea_query = new WP_Query( $args );
