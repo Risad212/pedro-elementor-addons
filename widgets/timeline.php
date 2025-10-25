@@ -6,6 +6,7 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
+use \Elementor\Repeater;
 
 class Pea_Timeline extends Widget_Base {
 
@@ -39,15 +40,15 @@ class Pea_Timeline extends Widget_Base {
 			]
 		);
 
-		$repeater = new \Elementor\Repeater();
+		$repeater = new Repeater();
 
 		$repeater->add_control(
 			'icon',
 			[
-				'label'   => esc_html__( 'Icon', 'pedro-elementor-addons' ),
-				'type'    => Controls_Manager::ICONS,
-				'default' => [
-					'value'    => 'fa-solid fa-graduation-cap', // ✅ Font Awesome 6 format
+				'label'        => esc_html__( 'Icon', 'pedro-elementor-addons' ),
+				'type'         => Controls_Manager::ICONS,
+				'default'      => [
+					'value'    => 'fa-solid fa-graduation-cap',
 					'library'  => 'fa-solid',
 				],
 			]
@@ -94,7 +95,47 @@ class Pea_Timeline extends Widget_Base {
 			]
 		);
 
+		
+		$this->add_control(
+			'switch_title',
+			[
+				'label'        => esc_html__( 'Title', 'textdomain' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Show', 'textdomain' ),
+				'label_off'    => esc_html__( 'Hide', 'textdomain' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'switch_education',
+			[
+				'label'        => esc_html__( 'education info', 'textdomain' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Show', 'textdomain' ),
+				'label_off'    => esc_html__( 'Hide', 'textdomain' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->add_control(
+			'switch_discription',
+			[
+				'label'        => esc_html__( 'discription', 'textdomain' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Show', 'textdomain' ),
+				'label_off'    => esc_html__( 'Hide', 'textdomain' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+
 		$this->end_controls_section();
+
+		
 	}
 
 	protected function render(): void {
@@ -118,9 +159,17 @@ class Pea_Timeline extends Widget_Base {
 					</span>
 
 					<div class="pea-timeline-content">
-						<h3 class="pea-title"><?php echo esc_html( $item['title'] ); ?></h3>
-						<h5 class="pea-title-text"><?php echo esc_html( $item['education_info'] ); ?></h5>
-						<p class="pea-description"><?php echo esc_html( $item['description'] ); ?></p>
+						<?php if( !empty( $settings['switch_title'] ) ){ ?>
+	                      <h3 class="pea-title"><?php echo esc_html( $item['title'] ); ?></h3>
+						 <?php }?>
+						 <?php if( !empty( $settings['switch_education'] ) ){ ?>
+                           <h5 class="pea-title-text"><?php echo esc_html( $item['education_info'] ); ?></h5>
+						<?php } ?>
+						
+						<?php if( !empty( $settings['switch_discription'] ) ){ ?>
+                           <p class="pea-description"><?php echo esc_html( $item['description'] ); ?></p>
+						<?php } ?>
+						
 					</div>
 				</div>
 			<?php endforeach; ?>

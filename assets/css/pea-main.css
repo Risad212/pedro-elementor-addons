@@ -203,12 +203,14 @@
   padding: 3px 0;
   color: #16a085;
   text-transform: capitalize;
+  margin-bottom: 2px;
 }
 
 .pea-main-timeline .pea-description {
   padding: 7px;
   margin: 0;
   padding-top: 0px;
+  padding-left: 0;
 }
 
 .pea-main-timeline .pea-timeline:nth-child(2n) {
