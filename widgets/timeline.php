@@ -92,7 +92,16 @@ class Pea_Timeline extends Widget_Base {
 				'label'       => esc_html__( 'Timeline', 'pedro-elementor-addons' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
-				'default'     => [],
+				'default' => [
+					[
+						'list_title'   => esc_html__( 'Title #1', 'textdomain' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'textdomain' ),
+					],
+					[
+						'list_title'   => esc_html__( 'Title #2', 'textdomain' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'textdomain' ),
+					]
+				],
 				'title_field' => '{{{ title }}}',
 			]
 		);
