@@ -238,16 +238,6 @@
   margin-bottom: -27px;
 }
 
-.pea-timeline:hover .pea-icon {
-  background: #16a085;
-  box-shadow: 0 0 0 2px #16a085;
-  border: 1px solid #16a085;
-}
-
-.pea-timeline:hover .pea-title {
-  color: #16a085;
-}
-
 .pea-timeline:hover .pea-title-text {
   color: #000;
 }

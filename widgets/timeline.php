@@ -7,6 +7,8 @@ use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
 use \Elementor\Repeater;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
 
 class Pea_Timeline extends Widget_Base {
 
@@ -146,7 +148,167 @@ class Pea_Timeline extends Widget_Base {
 
 		$this->end_controls_section();
 
-		
+		// icon style
+		$this->start_controls_section(
+			'icon_section',
+			[
+				'label' => esc_html__( 'Icon', 'textdomain' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'icon_size',
+			[
+				'label'        => esc_html__( 'Size', 'textdomain' ),
+				'type'         => Controls_Manager::SLIDER,
+				'size_units'   => [ 'px', '%', 'em', 'rem', 'custom' ],
+				'range'        => [
+					'px'       => [
+						'min'  => 0,
+						'step' => 1,
+					],
+				],
+				'default'       => [
+					'unit'      => 'px',
+					'size'      => 35,
+				],
+				'selectors'     => [
+					'{{WRAPPER}} .pea-icon svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+				]
+			]
+		);
+
+		$this->add_control(
+			  'icon_color',
+			[
+				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-icon svg' => 'fill: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			  'icon_bg_color',
+			[
+				'label'     => esc_html__( 'Background Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-icon' => 'background: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'border',
+				'selector' => '{{WRAPPER}} .pea-icon',
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'box_shadow',
+				'selector' => '{{WRAPPER}} .pea-icon',
+			]
+		);
+
+
+		$this->end_controls_section();
+
+		// title style
+		$this->start_controls_section(
+			'title_section',
+			[
+				'label' => esc_html__( 'Title', 'textdomain' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_group_control(
+			 Group_Control_Typography::get_type(),
+			[
+				'name'     => 'title_typography',
+				'selector' => '{{WRAPPER}} .pea-title',
+			]
+		);
+
+			$this->add_control(
+			  'title_color',
+			[
+				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-title' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		// education style
+		$this->start_controls_section(
+			'education_section',
+			[
+				'label' => esc_html__( 'Education', 'textdomain' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_group_control(
+			 Group_Control_Typography::get_type(),
+			[
+				'name'     => 'education_typography',
+				'selector' => '{{WRAPPER}} .pea-title-text',
+			]
+		);
+
+			$this->add_control(
+			  'education_color',
+			[
+				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-title-text' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		// discription style
+		$this->start_controls_section(
+			'discription_section',
+			[
+				'label' => esc_html__( 'Discription', 'textdomain' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_group_control(
+			 Group_Control_Typography::get_type(),
+			[
+				'name'     => 'discription_typography',
+				'selector' => '{{WRAPPER}} .pea-description',
+			]
+		);
+
+			$this->add_control(
+			  'discription_color',
+			[
+				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-description' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
 
 		
 	}
