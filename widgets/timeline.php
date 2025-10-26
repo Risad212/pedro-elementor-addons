@@ -95,14 +95,26 @@ class Pea_Timeline extends Widget_Base {
 			]
 		);
 
-		
+		$this->add_control(
+			'switch_icon',
+			[
+				'label'        => esc_html__( 'Icon', 'pedro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+
 		$this->add_control(
 			'switch_title',
 			[
-				'label'        => esc_html__( 'Title', 'textdomain' ),
+				'label'        => esc_html__( 'Title', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'textdomain' ),
-				'label_off'    => esc_html__( 'Hide', 'textdomain' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -111,10 +123,10 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'switch_education',
 			[
-				'label'        => esc_html__( 'education info', 'textdomain' ),
+				'label'        => esc_html__( 'education info', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'textdomain' ),
-				'label_off'    => esc_html__( 'Hide', 'textdomain' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -123,17 +135,18 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'switch_discription',
 			[
-				'label'        => esc_html__( 'discription', 'textdomain' ),
+				'label'        => esc_html__( 'discription', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'textdomain' ),
-				'label_off'    => esc_html__( 'Hide', 'textdomain' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
 		);
 
-
 		$this->end_controls_section();
+
+		
 
 		
 	}
@@ -148,16 +161,18 @@ class Pea_Timeline extends Widget_Base {
 		<div class="pea-main-timeline">
 			<?php foreach ( $settings['timeline_list'] as $item ) : ?>
 				<div class="pea-timeline">
-					<span class="pea-icon">
-						<?php
-						if ( ! empty( $item['icon']['value'] ) ) {
-							Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
-						} else {
-							echo '<i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>';
-						}
-						?>
-					</span>
 
+					<?php if( !empty( $settings['switch_icon'] ) ){ ?>
+					   <span class="pea-icon">
+						 <?php
+						  if ( ! empty( $item['icon']['value'] ) ) {
+							Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+						  } else {
+							echo '<i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>';
+						  }?>
+					</span>
+					<?php }?>
+					
 					<div class="pea-timeline-content">
 						<?php if( !empty( $settings['switch_title'] ) ){ ?>
 	                      <h3 class="pea-title"><?php echo esc_html( $item['title'] ); ?></h3>
