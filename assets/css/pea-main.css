@@ -1,11 +1,14 @@
 /*==========================================
-   Testimonial
+  Testimonial
 ==========================================*/
+.pea-testimonial-slider {
+    padding: 10px;
+}
+
 .pea-testimonial-wrapper {
     max-width: 1290px;
     margin: 0 auto;
     position: relative;
-    margin-top: 150px;
 }
 
 .pea-testimonial-card {
@@ -16,7 +19,6 @@
     min-height: 160px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
 .pea-testimonial-text {
@@ -24,13 +26,13 @@
     line-height: 1.5;
     color: #333;
     flex: 1 1 auto;
+    margin-bottom: 15px;
 }
 
 .pea-testimonial-meta {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 6px;
 }
 
 .pea-avatar {
@@ -44,6 +46,11 @@
     color: #111;
 }
 
+.pea-meta-info small {
+    display: block;
+    margin-top: 3px;
+}
+
 .pea-button-prev,
 .pea-button-next {
     width: 40px;
@@ -52,15 +59,18 @@
     border-radius: 50%;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 15%);
     position: absolute;
-    top: 42%;
+    top: 35%;
     z-index: 1;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
 }
 
 .pea-button-prev svg,
-.pea-button-next svg {
-    height: 40px;
-    width: 40px;
+.pea-button-next svg{
+  width: 16px;
 }
 
 .pea-button-prev {
@@ -71,15 +81,9 @@
     right: -2%;
 }
 
-
 .pea-swiper-pagination {
     margin-top: 25px;
     text-align: center;
-}
-
-.pea-meta-info small {
-    display: block;
-    margin-top: 3px;
 }
 
 .pea-button-wrap {
@@ -87,231 +91,218 @@
     justify-content: space-between;
 }
 
-.pea-swiper-pagination .swiper-pagination-bullet-active{
-  background: #000;
+.pea-swiper-pagination .swiper-pagination-bullet-active {
+    background: #000;
 }
 
 /*==========================================
    Timeline
 ==========================================*/
-
 .pea-main-timeline {
-  padding: 30px 0;
-  overflow: hidden;
-  position: relative;
+    padding: 30px 0;
+    overflow: hidden;
+    position: relative;
 }
 
 .pea-main-timeline:before {
-  content: '';
-  width: 7px;
-  height: 100px;
-  background: #404040;
-  margin: 0 auto;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  right: 0;
+    content: '';
+    width: 7px;
+    height: 100px;
+    background: #404040;
+    margin: 0 auto;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
 }
 
 .pea-main-timeline .pea-timeline {
-  width: 50%;
-  float: left;
-  padding: 20px 60px;
-  border-top: 7px solid #404040;
-  border-right: 7px solid #404040;
-  position: relative;
-  right: -3.5px;
+    width: 50%;
+    float: left;
+    padding: 20px 60px;
+    border-top: 7px solid #404040;
+    border-right: 7px solid #404040;
+    position: relative;
+    right: -3.5px;
 }
 
 .pea-main-timeline .pea-icon {
-  display: block;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  background: #000;
-  border: 1px solid white;
-  text-align: center;
-  font-size: 25px;
-  color: white;
-  box-shadow: 0 0 0 2px #000;
-  position: absolute;
-  top: -30px;
-  left: 0;
-  transition: all 0.5s ease 0s;
-  padding: 6px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    background: #000;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    box-shadow: 0 0 0 2px #000;
+    position: absolute;
+    top: -30px;
+    left: 0;
+    transition: all 0.5s ease;
+    padding: 6px;
 }
 
-.pea-main-timeline .pea-icon svg{
-  width: 35px;
-  height: 35px;
-  fill: #fff;
+.pea-main-timeline .pea-icon svg {
+    width: 35px;
+    height: 35px;
+    fill: #fff;
 }
 
 .pea-main-timeline .pea-timeline-content {
-  display: block;
-  padding: 20px 10px 10px;
-  border-radius: 20px;
-  background: #fff;
-  color: #000;
-  position: relative;
-  text-decoration: none;
-  -webkit-box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
-  -moz-box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
-  box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  -ms-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+    display: block;
+    padding: 20px 10px 10px;
+    border-radius: 20px;
+    background: #fff;
+    color: #000;
+    position: relative;
+    text-decoration: none;
+    box-shadow: 0 18px 42px 0 rgba(28, 30, 35, 0.15);
+    transition: all 0.3s ease-in-out;
 }
 
 .pea-main-timeline .pea-timeline-content:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .pea-main-timeline .pea-timeline-content:before,
 .pea-main-timeline .pea-timeline-content:after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 50px;
-  border-radius: 10px;
-  background: #404040;
-  border: 1px solid white;
-  position: absolute;
-  top: -35px;
-  left: 50px;
+    content: '';
+    display: block;
+    width: 10px;
+    height: 50px;
+    border-radius: 10px;
+    background: #404040;
+    border: 1px solid white;
+    position: absolute;
+    top: -35px;
+    left: 50px;
 }
 
 .pea-main-timeline .pea-timeline-content:after {
-  left: auto;
-  right: 50px;
+    left: auto;
+    right: 50px;
 }
 
 .pea-main-timeline .pea-title {
-  font-size: 22px;
-  margin: 0;
-  color: #000;
-  transition: all 0.5s ease 0s;
+    font-size: 22px;
+    margin: 0;
+    color: #000;
+    transition: all 0.5s ease;
 }
 
 .pea-main-timeline .pea-title-text {
-  font-size: 16px;
-  font-family: 'Nunito', sans-serif;
-  padding: 3px 0;
-  color: #16a085;
-  text-transform: capitalize;
-  margin-bottom: 2px;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    padding: 3px 0;
+    color: #16a085;
+    text-transform: capitalize;
+    margin-bottom: 2px;
 }
 
 .pea-main-timeline .pea-description {
-  padding: 7px;
-  margin: 0;
-  padding-top: 0px;
-  padding-left: 0;
+    padding: 7px 0 0 0;
+    margin: 0;
 }
 
 .pea-main-timeline .pea-timeline:nth-child(2n) {
-  border-right: none;
-  border-left: 7px solid #404040;
-  right: auto;
-  left: -3px;
+    border-right: none;
+    border-left: 7px solid #404040;
+    right: auto;
+    left: -3px;
+    margin-top: 130px;
 }
 
 .pea-main-timeline .pea-timeline:nth-child(2n) .pea-icon {
-  left: auto;
-  right: 0;
-}
-
-.pea-main-timeline .pea-timeline:nth-child(2n) {
-  margin-top: 130px;
+    left: auto;
+    right: 0;
 }
 
 .pea-main-timeline .pea-timeline:first-child,
 .pea-main-timeline .pea-timeline:last-child:nth-child(even) {
-  margin-top: 0 0 30px 0;
+    margin: 0 0 30px 0;
 }
 
 .pea-main-timeline .pea-timeline:nth-child(2) {
-  margin-bottom: -27px;
+    margin-bottom: -27px;
 }
 
 .pea-timeline:hover .pea-title-text {
-  color: #000;
+    color: #000;
 }
-
 
 /*==========================================
    Pea Blog Grid
 ==========================================*/
 .pea-blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  padding: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 50px 0;
 }
 
 .pea-blog-grid .pea-blog-card {
-  box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.07);
-  border-radius: 15px;
-  background: #fff;
-  overflow: hidden;
+    box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.07);
+    border-radius: 15px;
+    background: #fff;
+    overflow: hidden;
 }
 
 .pea-blog-grid .pea-blog-img {
-  overflow: hidden;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .pea-blog-grid .pea-blog-img a img {
-  width: 100%;
-  transition: 0.4s ease;
+    width: 100%;
+    transition: 0.4s ease;
 }
 
 .pea-blog-grid .pea-blog-img:hover a img {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .pea-blog-grid .pea-card-body {
-  padding: 20px 30px;
+    padding: 20px 30px;
 }
 
 .pea-blog-grid .pea-cart-top {
-  display: flex;
-  justify-content: space-between;
-  text-transform: capitalize;
-  font-size: 14px;
-  color: #777;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #777;
+    text-transform: capitalize;
 }
 
 .pea-blog-grid .pea-card-body .pea-author svg {
-  width: 14px;
-  height: 14px;
-  margin-right: 5px;
-  fill: #777;
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    fill: #777;
 }
 
 .pea-blog-grid .pea-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-top: 15px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 15px;
 }
 
 .pea-blog-grid .pea-title a {
-  color: #222;
-  text-decoration: none;
-  transition: 0.3s;
+    color: #222;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .pea-blog-grid .pea-title a:hover {
-  color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .pea-blog-grid .pea-card-body p {
-  color: #4c4c4d;
-  margin-top: 18px;
-  line-height: 1.6;
+    color: #4c4c4d;
+    margin-top: 18px;
+    line-height: 1.6;
 }
