@@ -5,8 +5,9 @@
  * Version:     1.0.0
  * Author:      hmrisad
  * Author URI:  
+ * License: GPL3
+ * License URI: http://www.gnu.org/licenses/gpl.html
  * Text Domain: pedro-elementor-addons
- * Domain Path: /languages
  */
 
 

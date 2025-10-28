@@ -94,12 +94,12 @@ class Pea_Timeline extends Widget_Base {
 				'fields'      => $repeater->get_controls(),
 				'default' => [
 					[
-						'list_title'   => esc_html__( 'Title #1', 'textdomain' ),
-						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'textdomain' ),
+						'list_title'   => esc_html__( 'Title #1', 'pedro-elementor-addons' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'pedro-elementor-addons' ),
 					],
 					[
-						'list_title'   => esc_html__( 'Title #2', 'textdomain' ),
-						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'textdomain' ),
+						'list_title'   => esc_html__( 'Title #2', 'pedro-elementor-addons' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'pedro-elementor-addons' ),
 					]
 				],
 				'title_field' => '{{{ title }}}',
@@ -161,7 +161,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'icon_section',
 			[
-				'label' => esc_html__( 'Icon', 'textdomain' ),
+				'label' => esc_html__( 'Icon', 'pedro-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -169,7 +169,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label'        => esc_html__( 'Size', 'textdomain' ),
+				'label'        => esc_html__( 'Size', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'size_units'   => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'        => [
@@ -191,7 +191,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			  'icon_color',
 			[
-				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-icon svg' => 'fill: {{VALUE}}',
@@ -202,7 +202,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			  'icon_bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'textdomain' ),
+				'label'     => esc_html__( 'Background Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-icon' => 'background: {{VALUE}}',
@@ -233,7 +233,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'title_section',
 			[
-				'label' => esc_html__( 'Title', 'textdomain' ),
+				'label' => esc_html__( 'Title', 'pedro-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -249,7 +249,7 @@ class Pea_Timeline extends Widget_Base {
 			$this->add_control(
 			  'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-title' => 'color: {{VALUE}}',
@@ -263,7 +263,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'education_section',
 			[
-				'label' => esc_html__( 'Education', 'textdomain' ),
+				'label' => esc_html__( 'Education', 'pedro-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -279,7 +279,7 @@ class Pea_Timeline extends Widget_Base {
 			$this->add_control(
 			  'education_color',
 			[
-				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-title-text' => 'color: {{VALUE}}',
@@ -293,7 +293,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'discription_section',
 			[
-				'label' => esc_html__( 'Discription', 'textdomain' ),
+				'label' => esc_html__( 'Discription', 'pedro-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -309,7 +309,7 @@ class Pea_Timeline extends Widget_Base {
 			$this->add_control(
 			  'discription_color',
 			[
-				'label'     => esc_html__( 'Color', 'textdomain' ),
+				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-description' => 'color: {{VALUE}}',
