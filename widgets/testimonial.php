@@ -661,57 +661,27 @@ class Pea_Testimonial extends Widget_Base {
            </div>
           </div>
 
-
           <!-- Pagination -->
            <?php if( ! empty( $settings[ 'pagination_switch'] ) ) {?>
              <div class="pea-swiper-pagination"></div>
            <?php } ?>
 
-
-
-
          <!-- Navigation -->
-        <?php if( ! empty( $settings['navigation_switch'] ) ) : 
+        <?php if( ! empty( $settings['navigation_switch'] ) ){ ?>
 
-    // Get the icon settings
-    $nav_icon = $settings['navigation_icon']; 
-
-?>
     <div class="navigation-button pea-button-prev" aria-label="Previous slide">
         <span class="pea-icon-prev">
-            <?php
-            if ( ! empty( $nav_icon['value'] ) ) {
-                // Render Elementor icon if set
-                \Elementor\Icons_Manager::render_icon( $nav_icon, [ 'aria-hidden' => 'true' ] );
-            } else {
-                // Default left arrow SVG
-                echo '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 7L10 12L15 17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>';
-            }
-            ?>
+            
         </span>
     </div>
 
     <div class="navigation-button pea-button-next" aria-label="Next slide">
         <span class="pea-icon-next">
-            <?php
-            if ( ! empty( $nav_icon['value'] ) ) {
-                // Render Elementor icon if set
-                Icons_Manager::render_icon( $nav_icon, [ 'aria-hidden' => 'true' ] );
-            } else {
-                // Default right arrow SVG
-                echo '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 7L15 12L10 17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </svg>';
-            }
-            ?>
+           
         </span>
     </div>
 
-<?php endif; ?>
-
-
+     <?php }; ?>
 
        </div>
       <?php
