@@ -133,13 +133,17 @@ final class Pedro_Elementro_Addon {
 		}
 
 		$message = sprintf(
-		/* translators: 1: Plugin name 2: Elementor */
-			__( '"%1$s" requires "%2$s" to be installed and activated.', 'pedro-elementor-addons' ),
-			'<strong>' . __( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
-			'<strong>' . __( 'Elementor', 'pedro-elementor-addons' ) . '</strong>'
+	/* translators: 1: Plugin name 2: Elementor */
+	__( '"%1$s" requires "%2$s" to be installed and activated.', 'pedro-elementor-addons' ),
+	'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
+	'<strong>' . esc_html__( 'Elementor', 'pedro-elementor-addons' ) . '</strong>'
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf(
+			'<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>',
+			wp_kses_post( $message )
+		);
+
 	}
 
 	/**
@@ -156,14 +160,18 @@ final class Pedro_Elementro_Addon {
 		}
 
 		$message = sprintf(
-		/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-elementor-addons' ),
-			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'pedro-elementor-addons' ) . '</strong>',
-			self::MINIMUM_ELEMENTOR_VERSION
-		);
+	/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
+	esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-elementor-addons' ),
+	'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
+	'<strong>' . esc_html__( 'Elementor', 'pedro-elementor-addons' ) . '</strong>',
+	esc_html( self::MINIMUM_ELEMENTOR_VERSION )
+);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+printf(
+	'<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>',
+	wp_kses_post( $message )
+);
+
 	}
 
 	/**
@@ -180,14 +188,18 @@ final class Pedro_Elementro_Addon {
 		}
 
 		$message = sprintf(
-		/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
+			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
 			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-elementor-addons' ),
 			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
 			'<strong>' . esc_html__( 'PHP', 'pedro-elementor-addons' ) . '</strong>',
-			self::MINIMUM_PHP_VERSION
+			esc_html( self::MINIMUM_PHP_VERSION )
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf(
+			'<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>',
+			wp_kses_post( $message )
+		);
+
 	}
 }
 
