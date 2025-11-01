@@ -37,9 +37,11 @@ class Plugin {
 
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
 		require_once PEA_PLUGIN_PATH . 'widgets/timeline.php';
+        require_once PEA_PLUGIN_PATH . 'widgets/button.php';
 
 		$widgets_manager->register( new \Pea_Testimonial() );
 		$widgets_manager->register( new \Pea_Timeline() );
+		$widgets_manager->register( new \Pea_Button() );
 	}
 
 	 /**
