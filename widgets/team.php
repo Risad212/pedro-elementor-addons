@@ -26,7 +26,7 @@ class Pea_Team extends Widget_Base {
     }
 
     public function get_keywords(): array {
-        return [ 'Team','Team member' ];
+        return [ 'team', 'member', 'crew', 'staff', 'person' ];
     }
 
     // Start content controls
@@ -144,6 +144,7 @@ class Pea_Team extends Widget_Base {
 
         $this->end_controls_section();
 
+        // Style Section
         $this->start_controls_section(
 			'style_section',
 			[
@@ -151,6 +152,18 @@ class Pea_Team extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		 );
+
+         // Photo
+         $this->start_controls_tab(
+            'style_normal_tab',
+            [
+                'label' => esc_html__( 'Photo', 'textdomain' ),
+            ]
+        );
+
+       
+
+        $this->end_controls_tab();
 
         $this->end_controls_section();
     }
