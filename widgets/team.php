@@ -7,18 +7,18 @@ use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
 
-class Pea_Testimonial extends Widget_Base {
+class Pea_Team extends Widget_Base {
 
     public function get_name() {
-        return 'pea_testimonial';
+        return 'pea_team';
     }
 
     public function get_title(): string {
-        return __( 'Testimonial', 'pedro-elementor-addons' );
+        return __( 'Team', 'pedro-elementor-addons' );
     }
 
     public function get_icon(): string {
-        return 'eicon-testimonial pedro-elementor-icon';
+        return 'eicon-person pedro-elementor-icon';
     }
 
     public function get_categories(): array {
@@ -26,7 +26,7 @@ class Pea_Testimonial extends Widget_Base {
     }
 
     public function get_keywords(): array {
-        return [ 'Testimonial' ];
+        return [ 'Team','Team member' ];
     }
 
     // Start content controls
@@ -35,10 +35,112 @@ class Pea_Testimonial extends Widget_Base {
         $this->start_controls_section(
             'section_title',
             [
-                'label' => __( 'Testimonial', 'pedro-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_CONTENT,
+                'label'   => __( 'Testimonial', 'pedro-elementor-addons' ),
+                'tab'     => Controls_Manager::TAB_CONTENT,
             ]
         );
+
+        $this->add_control(
+			'team_image',
+			[
+				'label'   => esc_html__( 'Choose Image', 'pedro-elementor-addons' ),
+				'type'    => Controls_Manager::MEDIA,
+				'default' => [
+					'url' => Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+        $this->add_group_control(
+			Group_Control_Image_Size::get_type(),
+			[
+				'name'    => 'thumbnail', 
+				'exclude' => [ 'custom' ],
+				'default' => 'large',
+			]
+		);
+
+        	$this->add_control(
+			 'team_name',
+			[
+				'label'       => __( 'Name', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+				'default'     => __( 'Pedro Team Member', 'pedro-elementor-addons' ),
+				'placeholder' => __( 'Type Member Name',  'pedro-elementor-addons' ),
+			]
+		);
+
+        $this->add_control(
+			 'job_title',
+			[
+				'label'       => __( 'Job Title', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::TEXT,
+                'label_block' => true,
+				'default'     => __( 'Pedro Office', 'pedro-elementor-addons' ),
+				'placeholder' => __( 'Type Member Job Title',  'pedro-elementor-addons' ),
+			]
+		);
+
+        
+		$this->add_control(
+			'team_bio',
+			[
+				'label'       => __( 'Short Bio', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::TEXTAREA,
+				'rows'        => 5,
+				'placeholder' => __( 'A Happy Pedro Member!', 'pedro-elementor-addons' ),
+			]
+		);
+
+        $this->add_control(
+            'title_tag',
+            [
+                'label'    => esc_html__( 'Title HTML Tag', 'pedro-elementor-addons' ),
+                'type'     => Controls_Manager::SELECT,
+                'default'  => 'h2',
+                'options'  => [
+                    'h1'   => esc_html__(  'H1', 'pedro-elementor-addons' ),
+                    'h2'   => esc_html__(  'H2', 'pedro-elementor-addons' ),
+                    'h3'   => esc_html__(  'H3', 'pedro-elementor-addons' ),
+                    'h4'   => esc_html__(  'H4', 'pedro-elementor-addons' ),
+                    'h5'   => esc_html__(  'H5', 'pedro-elementor-addons' ),
+                    'h6'   => esc_html__(  'H6', 'pedro-elementor-addons' ),
+                    'div'  => esc_html__(  'DIV', 'pedro-elementor-addons' ),
+                    'span' => esc_html__( 'SPAN', 'pedro-elementor-addons' ),
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+			'team_align',
+			[
+				'label'          => __( 'Alignment', 'pedro-elementor-addons' ),
+				'type'           => Controls_Manager::CHOOSE,
+				'options'        => [
+					'left'       => [
+						'title'  => __( 'Left', 'pedro-elementor-addons' ),
+						'icon'   => 'eicon-text-align-left',
+					],
+					'center'     => [
+						'title'  => __( 'Center', 'pedro-elementor-addons' ),
+						'icon'   => 'eicon-text-align-center',
+					],
+					'right'      => [
+						'title'  => __( 'Right', 'pedro-elementor-addons' ),
+						'icon'   => 'eicon-text-align-right',
+					],
+					'justify'    => [
+						'title'  => __( 'Justify', 'pedro-elementor-addons' ),
+						'icon'   => 'eicon-text-align-justify',
+					],
+				],
+				'toggle'          => true,
+				'selectors'       => [
+					'{{WRAPPER}}' => 'text-align: {{VALUE}};',
+				],
+			]
+		);
 
         $this->end_controls_section();
     }
