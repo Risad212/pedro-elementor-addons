@@ -80,12 +80,12 @@ class Pea_Button extends Widget_Base {
         $this->add_control(
 			'pea_button_blend_toggle',
 			[
-				'label' => esc_html__( 'Show Title', 'textdomain' ),
-				'type' => \Elementor\Controls_Manager::SWITCHER,
-				'label_on' => esc_html__( 'Show', 'textdomain' ),
-				'label_off' => esc_html__( 'Hide', 'textdomain' ),
+				'label'        => esc_html__( 'Text Blend', 'pedro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'On', 'pedro-elementor-addons' ),
+				'label_off'    => esc_html__( 'Off', 'pedro-elementor-addons' ),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default'      => 'yes',
 			]
 		);
 
@@ -238,8 +238,6 @@ class Pea_Button extends Widget_Base {
                'selector' => '{{WRAPPER}} .pea-button',
            ]
        );
-
-
 
 
        $this->add_responsive_control(
