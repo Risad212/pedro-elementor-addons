@@ -277,7 +277,7 @@ class Pea_Button extends Widget_Base {
        }
        ?>
 
-       <a href="#" <?php echo $this->get_render_attribute_string('button') ?> > 
+       <a <?php echo $this->get_render_attribute_string('button') ?> > 
            <span <?php echo $this->get_render_attribute_string('button_blend') ?> >
               <?php echo esc_html( $settings['button_text'] ); ?>
           </span>
