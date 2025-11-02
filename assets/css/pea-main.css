@@ -293,7 +293,6 @@
 }
 
 .pea-button span{
-    mix-blend-mode: difference;
     display: block;
     position: relative;
 }
