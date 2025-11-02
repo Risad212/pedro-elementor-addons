@@ -143,6 +143,16 @@ class Pea_Team extends Widget_Base {
 		);
 
         $this->end_controls_section();
+
+        $this->start_controls_section(
+			'style_section',
+			[
+				'label' => esc_html__( 'Style', 'pedro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		 );
+
+        $this->end_controls_section();
     }
 
     protected function render(): void {
