@@ -1,4 +1,5 @@
 <?php
+
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
@@ -6,6 +7,10 @@ use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
+use \Elementor\Group_Control_Border;
+use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Css_Filter;
+
 
 class Pea_Team extends Widget_Base {
 
@@ -35,7 +40,7 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_section(
             'section_title',
             [
-                'label'   => __( 'Testimonial', 'pedro-elementor-addons' ),
+                'label'   => __( 'Information', 'pedro-elementor-addons' ),
                 'tab'     => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -43,7 +48,7 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
 			'team_image',
 			[
-				'label'   => esc_html__( 'Choose Image', 'pedro-elementor-addons' ),
+				'label'   => __( 'Choose Image', 'pedro-elementor-addons' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -96,18 +101,18 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
             'title_tag',
             [
-                'label'    => esc_html__( 'Title HTML Tag', 'pedro-elementor-addons' ),
+                'label'    => __( 'Title HTML Tag', 'pedro-elementor-addons' ),
                 'type'     => Controls_Manager::SELECT,
                 'default'  => 'h2',
                 'options'  => [
-                    'h1'   => esc_html__(  'H1', 'pedro-elementor-addons' ),
-                    'h2'   => esc_html__(  'H2', 'pedro-elementor-addons' ),
-                    'h3'   => esc_html__(  'H3', 'pedro-elementor-addons' ),
-                    'h4'   => esc_html__(  'H4', 'pedro-elementor-addons' ),
-                    'h5'   => esc_html__(  'H5', 'pedro-elementor-addons' ),
-                    'h6'   => esc_html__(  'H6', 'pedro-elementor-addons' ),
-                    'div'  => esc_html__(  'DIV', 'pedro-elementor-addons' ),
-                    'span' => esc_html__( 'SPAN', 'pedro-elementor-addons' ),
+                    'h1'   => __(  'H1', 'pedro-elementor-addons' ),
+                    'h2'   => __(  'H2', 'pedro-elementor-addons' ),
+                    'h3'   => __(  'H3', 'pedro-elementor-addons' ),
+                    'h4'   => __(  'H4', 'pedro-elementor-addons' ),
+                    'h5'   => __(  'H5', 'pedro-elementor-addons' ),
+                    'h6'   => __(  'H6', 'pedro-elementor-addons' ),
+                    'div'  => __(  'DIV', 'pedro-elementor-addons' ),
+                    'span' => __( 'SPAN', 'pedro-elementor-addons' ),
                 ],
             ]
         );
@@ -148,20 +153,200 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_section(
 			'style_section',
 			[
-				'label' => esc_html__( 'Style', 'pedro-elementor-addons' ),
+				'label' => __( 'Photo', 'pedro-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		 );
 
-         // Photo
-         $this->start_controls_tab(
-            'style_normal_tab',
+        $this->add_responsive_control(
+			'image_width',
+			[
+				'label'       => __( 'Width', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', '%'],
+				'range'       => [
+					'%'       => [
+						'min' => 20,
+						'max' => 100,
+					],
+					'px'      => [
+						'min' => 100,
+						'max' => 700,
+					],
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .pea-team-img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_responsive_control(
+			'image_height',
+			[
+				'label'       => __( 'Height', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::SLIDER,
+				'range'       => [
+					'px'      => [
+						'min' => 100,
+						'max' => 700,
+					],
+				],
+				'selectors'   => [
+					'{{WRAPPER}} .pea-team-img' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        	$this->add_responsive_control(
+			'image_spacing',
+			[
+				'label'      => __( 'Bottom Spacing', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-team-img' => 'margin-bottom: {{SIZE}}{{UNIT}} !important;',
+				],
+			]
+		);
+
+        $this->add_responsive_control(
+			'image_padding',
+			[
+				'label'      => __( 'Padding', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%', 'em'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-team-img' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'image_border',
+				'selector' => '{{WRAPPER}} .pea-team-img',
+			]
+		);
+
+        $this->add_control(
+			'image_border_radius',
+			[
+				'label'      => __( 'Margin', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-team-img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				]
+			]
+		);
+
+        $this->add_group_control(
+			Group_Control_Box_Shadow::get_type(),
+			[
+				'name'     => 'box_shadow',
+				'selector' => '{{WRAPPER}} .pea-team-img',
+			]
+		);
+
+        	$this->add_control(
+			'background_color',
+			[
+				'label'     => __( 'Background Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-team-img' => 'background: {{VALUE}}',
+				],
+			]
+		);
+
+
+        $this->start_controls_tabs('style_tabs');
+
+        $this->start_controls_tab(
+            'tab_image_opacity_normal',
             [
-                'label' => esc_html__( 'Photo', 'textdomain' ),
+                'label' => __( 'Normal', 'textdomain' ),
             ]
         );
 
+        $this->add_control(
+			'image_opacity_normal',
+			[
+				'label'        => __( 'Opacity', 'textdomain' ),
+				'type'         => Controls_Manager::SLIDER,
+				'range'        => [
+					'px'       => [
+						'min'  => 0.10,
+						'max'  => 1,
+						'step' => 0.01,
+					]
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pea-team-img' => 'opacity: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_image_opacity_hover',
+            [
+                'label' => __( 'Hover', 'textdomain' ),
+            ]
+        );
+
+        $this->add_control(
+			'image_opacity_hover',
+			[
+				'label'        => __( 'Opacity', 'textdomain' ),
+				'type'         => Controls_Manager::SLIDER,
+				'range'        => [
+					'px'       => [
+						'min'  => 0.10,
+						'max'  => 1,
+						'step' => 0.01,
+					]
+				],
+				'selectors' => [
+					'{{WRAPPER}} .pea-team-img' => 'opacity: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+        $this->add_control(
+			'img_hover_transition',
+			[
+				'label'        => __( 'Transition Duration', 'happy-elementor-addons' ),
+				'type'         => Controls_Manager::SLIDER,
+				'range'        => [
+					'px'       => [
+						'max'  => 3,
+						'step' => 0.1,
+					],
+				],
+				'default'      => [
+					'size'     => .2,
+				],
+				'selectors'    => [
+					'{{WRAPPER}} .pea-team-img' => 'transition-duration: {{SIZE}}s;',
+				],
+			]
+		);
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
        
+        // css filter
+        $this->add_group_control(
+			Group_Control_Css_Filter::get_type(),
+			[
+				'name'     => 'img_css_filters',
+				'selector' => '{{WRAPPER}} .pea-team-img',
+			]
+		);
 
         $this->end_controls_tab();
 
@@ -175,8 +360,8 @@ class Pea_Team extends Widget_Base {
         ?>
             <div class="pea-team-card">
                 <div class="pea-card-img">
-                    <img class="pea-img-fluid" src="doctor-1.png" alt="Team Member">
-                    <ul class="pea-social-media">
+                    <img class="pea-team-img" src="#" alt="Team Member">
+                    <div class="pea-social-media">
                         <ul class="pea-social-media">
                             <li class="pea-item">
                                 <a href="#">
@@ -230,7 +415,7 @@ class Pea_Team extends Widget_Base {
                             </li>
                         </ul>
 
-                    </ul>
+                   </div>
                 </div>
                 <div class="pea-card-content">
                     <h4 class="pea-title"><a href="#">Ema Jackson</a></h4>
