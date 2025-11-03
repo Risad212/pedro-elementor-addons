@@ -112,7 +112,7 @@ class Pea_Team extends Widget_Base {
                     'h5'   => __(  'H5', 'pedro-elementor-addons' ),
                     'h6'   => __(  'H6', 'pedro-elementor-addons' ),
                     'div'  => __(  'DIV', 'pedro-elementor-addons' ),
-                    'span' => __( 'SPAN', 'pedro-elementor-addons' ),
+                    'span' => __(  'SPAN', 'pedro-elementor-addons' ),
                 ],
             ]
         );
@@ -266,14 +266,14 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_tab(
             'tab_image_opacity_normal',
             [
-                'label' => __( 'Normal', 'textdomain' ),
+                'label' => __( 'Normal', 'pedro-elementor-addons' ),
             ]
         );
 
         $this->add_control(
 			'image_opacity_normal',
 			[
-				'label'        => __( 'Opacity', 'textdomain' ),
+				'label'        => __( 'Opacity', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -293,14 +293,14 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_tab(
             'tab_image_opacity_hover',
             [
-                'label' => __( 'Hover', 'textdomain' ),
+                'label' => __( 'Hover', 'pedro-elementor-addons' ),
             ]
         );
 
         $this->add_control(
 			'image_opacity_hover',
 			[
-				'label'        => __( 'Opacity', 'textdomain' ),
+				'label'        => __( 'Opacity', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -318,7 +318,7 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
 			'img_hover_transition',
 			[
-				'label'        => __( 'Transition Duration', 'happy-elementor-addons' ),
+				'label'        => __( 'Transition Duration', 'pedro-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -351,6 +351,159 @@ class Pea_Team extends Widget_Base {
         $this->end_controls_tab();
 
         $this->end_controls_section();
+
+      // Name, Job Title, Bio
+        $this->start_controls_section(
+            'content_section',
+            [
+                'label' => __( 'Name, Job Title & Bio', 'pedro-elementor-addons' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'Content Padding',
+            [
+                'label'      => __( 'Content Padding', 'pedro-elementor-addons' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .pea-card-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+			'title_spacing',
+			[
+				'label'      => __( 'Name Bottom Spacing', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px'],
+                'separator'  => 'before',
+				'selectors'  => [
+					'{{WRAPPER}} .pea-team-title' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+       $this->add_control(
+			'name_color',
+			[
+				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-team-title' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'name_typography',
+				'selector' => '{{WRAPPER}} .pea-team-title',
+			]
+		);
+
+        
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'name_shadow',
+				'selector' => '{{WRAPPER}} .pea-team-title',
+                'separator' => 'before',
+			]
+		);
+
+        // job title
+        $this->add_responsive_control(
+			'job_title_spacing',
+			[
+				'label'      => __( 'Job Title Bottom Spacing', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px'],
+                'separator' => 'before',
+				'selectors'  => [
+					'{{WRAPPER}} .pea-team-position' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+       $this->add_control(
+			'job_title_color',
+			[
+				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-team-position' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'job_title_typography',
+				'selector' => '{{WRAPPER}} .pea-team-position',
+			]
+		);
+
+        
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'job_title_shadow',
+				'selector' => '{{WRAPPER}} .pea-team-position',
+                'separator' => 'before',
+			]
+		);
+
+        // short bio
+        $this->add_responsive_control(
+			'short_bio_spacing',
+			[
+				'label'      => __( 'Short Bio Bottom Spacing', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => [ 'px'],
+                'separator'  => 'before',
+				'selectors'  => [
+					'{{WRAPPER}} .pea-short-disc' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+       $this->add_control(
+			'short_bio_color',
+			[
+				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-short-disc' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'short_bio_typography',
+				'selector' => '{{WRAPPER}} .pea-short-disc',
+			]
+		);
+
+        
+		$this->add_group_control(
+			Group_Control_Text_Shadow::get_type(),
+			[
+				'name'     => 'short_bio_shadow',
+				'selector' => '{{WRAPPER}} .pea-short-disc',
+                'separator' => 'after',
+			]
+		);
+        
+        $this->end_controls_section();
+
+
     }
 
     protected function render(): void {
@@ -418,8 +571,8 @@ class Pea_Team extends Widget_Base {
                    </div>
                 </div>
                 <div class="pea-card-content">
-                    <h4 class="pea-title"><a href="#">Ema Jackson</a></h4>
-                    <span class="pea-position">Project Manager</span>
+                    <h4 class="pea-team-title"><a href="#">Ema Jackson</a></h4>
+                    <span class="pea-team-position">Project Manager</span>
                     <p class="pea-short-disc">A small river named Duden flows by their place and supplies it with the
                         necessary</p>
                 </div>
