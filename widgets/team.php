@@ -10,6 +10,7 @@ use \Elementor\Icons_Manager;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Css_Filter;
+use \Elementor\Repeater;
 
 
 class Pea_Team extends Widget_Base {
@@ -148,6 +149,73 @@ class Pea_Team extends Widget_Base {
 		);
 
         $this->end_controls_section();
+
+		// social section 
+		$this->start_controls_section(
+			'social_section',
+			[
+				'label' => __( 'Social Profiles', 'pedro-elementor-addons' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+        
+		
+	    $repeater = new Repeater();
+
+		$repeater->add_control(
+			'social_icon',
+			[
+				'label'       => __( 'Icon', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::ICONS,
+				'default'     => [
+					'value'   => 'fab fa-facebook-f',
+					'library' => 'fa-brands',
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'social_link',
+			[
+				'label'       => __( 'Link', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => __( '#', 'pedro-elementor-addons' ),
+				'default'     => [
+					'url'     => '#',
+				],
+			]
+		);
+
+		$this->add_control(
+			'social_list',
+			[
+				'label'   => __( 'Social Icons', 'pedro-elementor-addons' ),
+				'type'    => Controls_Manager::REPEATER,
+				'fields'  => $repeater->get_controls(),
+				'default' => [
+					[
+						'social_item' => __( 'Facebook', 'pedro-elementor-addons' ),
+						'social_icon' => [ 'value' => 'fab fa-facebook-f', 'library' => 'fa-brands' ],
+						'social_link' => [ 'url' => '#' ],
+					]
+				],
+				'title_field' => '{{{ social_item }}}',
+			]
+		);
+
+		$this->add_control(
+			'show_social_profile',
+			[
+				'label'        => esc_html__( 'Show Icons', 'pedro-elementor-addons' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'return_value' => 'yes',
+				'default'      => 'yes',
+			]
+		);
+
+		$this->end_controls_section();
 
         // Style Section
         $this->start_controls_section(
@@ -503,8 +571,9 @@ class Pea_Team extends Widget_Base {
         
         $this->end_controls_section();
 
+		// social section
 		$this->start_controls_section(
-		'social_section',
+		'social_icon_section',
 		[
 			'label' => __( 'Social Icons', 'pedro-elementor-addons' ),
 			'tab'   => Controls_Manager::TAB_STYLE,
@@ -638,7 +707,7 @@ class Pea_Team extends Widget_Base {
 		$this->end_controls_tabs();
 
 	   $this->end_controls_section();
-	   
+
     }
 
     protected function render(): void {
