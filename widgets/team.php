@@ -503,7 +503,142 @@ class Pea_Team extends Widget_Base {
         
         $this->end_controls_section();
 
+		$this->start_controls_section(
+		'social_section',
+		[
+			'label' => __( 'Social Icons', 'pedro-elementor-addons' ),
+			'tab'   => Controls_Manager::TAB_STYLE,
+		]
+	   );
 
+	  $this->add_responsive_control(
+			'icon_size',
+			[
+				'label'      => __( 'Icon Size', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-social-media li > a' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_spacing',
+			[
+				'label'      => __( 'Left Spacing', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-social-media li > a:not(:last-child)' => 'margin-left: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_padding',
+			[
+				'label'      => __( 'Padding', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-social-media li > a' => 'padding: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Border::get_type(),
+			[
+				'name'     => 'links_border',
+				'selector' => '{{WRAPPER}} .pea-social-media li > a',
+			]
+		);
+
+		$this->add_responsive_control(
+			'links_border_radius',
+			[
+				'label'      => __( 'Border Radius', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => [ 'px', '%' ],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-social-media li > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->start_controls_tabs(
+	        'social_icon_color'
+		);
+
+		$this->start_controls_tab(
+			'style_normal_tab',
+			[
+				'label' => __( 'Normal', 'pedro-elementor-addons' ),
+			]
+		);
+
+		$this->add_control(
+			'icon_color_normal',
+			[
+				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-social-media li a' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_color_bg_normal',
+			[
+				'label'     => __( 'Background Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-social-media li a' => ': {{VALUE}}',
+				],
+			]
+		);
+
+
+		$this->end_controls_tab();
+
+		// hover social icon
+		$this->start_controls_tab(
+			'style_hover_tab',
+			[
+				'label' => __( 'Hover', 'pedro-elementor-addons' ),
+			]
+		);
+
+		$this->add_control(
+			'icon_color_hover',
+			[
+				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-social-media li a:hover' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_control(
+			'icon_color_bg_hover',
+			[
+				'label'     => __( 'Background Color', 'pedro-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-social-media li a:hover' => 'background: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_tab();
+
+		$this->end_controls_tabs();
+
+	   $this->end_controls_section();
+	   
     }
 
     protected function render(): void {
