@@ -1,4 +1,5 @@
 <?php
+namespace PedroEA;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

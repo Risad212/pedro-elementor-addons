@@ -1,4 +1,5 @@
 <?php
+namespace PedroEA;
 
 use \Elementor\Utils;
 use \Elementor\Widget_Base;

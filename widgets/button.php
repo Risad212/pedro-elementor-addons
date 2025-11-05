@@ -1,4 +1,6 @@
 <?php
+namespace PedroEA;
+
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
