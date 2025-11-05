@@ -1,15 +1,20 @@
 <?php
 /**
- * Plugin Name: Pedro Elementor Addon
- * Description: Elementor Addon for the Pedro Theme.
- * Version:     1.0.0
- * Author:      Hafez Risad
- * Author URI:  
- * License:     GPLv3
- * License URI: http://www.gnu.org/licenses/gpl.html
- * Text Domain: pedro-elementor-addons
- * Requires Plugins: elementor
+ * Plugin Name:       Pedro Elementor Addons
+ * Plugin URI: 
+ * Description:       Elementor Addon For The Elementor Themes.
+ * Version:           1.0.0
+ * Requires at least: 6.6
+ * Requires PHP:      7.4
+ * Author:            Hafez Risad
+ * Author URI:        
+ * License:           GPLv3
+ * License URI:       http://www.gnu.org/licenses/gpl.html
+ * Text Domain:       pedro-elementor-addons
+ * Requires Plugins:  elementor
+ * Requires Elementor: 3.5.0
  */
+
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,14 +38,14 @@ final class Pedro_Elementor_Addon {
 	 *
 	 * @var string
 	 */
-	const MINIMUM_ELEMENTOR_VERSION = '3.0.0';
+	const MINIMUM_ELEMENTOR_VERSION = '3.5.0';
 
 	/**
 	 * Minimum PHP version required to run the plugin.
 	 *
 	 * @var string
 	 */
-	const MINIMUM_PHP_VERSION = '7.0';
+	const MINIMUM_PHP_VERSION = '7.4';
 
 	/**
 	 * Constructor.
