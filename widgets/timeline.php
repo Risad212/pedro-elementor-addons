@@ -10,6 +10,13 @@ use \Elementor\Repeater;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
 class Pea_Timeline extends Widget_Base {
 
 	public function get_name(){

@@ -7,6 +7,11 @@ use \Elementor\Group_Control_Text_Shadow;
 use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Pea_Testimonial extends Widget_Base {
 
     public function get_name() {

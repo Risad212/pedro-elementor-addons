@@ -11,6 +11,11 @@ use Elementor\Group_Control_Box_Shadow;
 use Elementor\Group_Control_Border;
 
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Pea_Button extends Widget_Base {
 
 

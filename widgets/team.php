@@ -13,6 +13,11 @@ use \Elementor\Group_Control_Css_Filter;
 use \Elementor\Repeater;
 
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 class Pea_Team extends Widget_Base {
 
     public function get_name() {

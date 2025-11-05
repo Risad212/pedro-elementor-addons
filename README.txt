@@ -3,7 +3,7 @@
 Contributors: hmrisad
 Tags: pedro, elementor, addon, widgets
 Requires at least: 4.7
-Requires PHP: 5.6
+Requires PHP: 7.4
 Tested up to: 6.8
 Stable tag: 1.0.0
 License: GPL-3.0

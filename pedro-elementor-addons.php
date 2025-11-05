@@ -8,6 +8,7 @@
  * License:     GPLv3
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Text Domain: pedro-elementor-addons
+ * Requires Plugins: elementor
  */
 
 // Exit if accessed directly.
