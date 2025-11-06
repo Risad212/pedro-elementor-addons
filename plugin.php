@@ -1,6 +1,8 @@
 <?php
 namespace PedroEA;
 
+use PedroEA\Pea_Testimonial;
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -43,13 +45,9 @@ class Plugin {
 
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
 		require_once PEA_PLUGIN_PATH . 'widgets/timeline.php';
-        require_once PEA_PLUGIN_PATH . 'widgets/button.php';
-        require_once PEA_PLUGIN_PATH . 'widgets/team.php';
 
 		$widgets_manager->register( new \Pea_Testimonial() );
 		$widgets_manager->register( new \Pea_Timeline() );
-		$widgets_manager->register( new \Pea_Button() );
-		$widgets_manager->register( new \Pea_Team() );
 	}
 
 	 /**
