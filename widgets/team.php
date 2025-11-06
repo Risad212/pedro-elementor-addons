@@ -1,5 +1,5 @@
 <?php
-namespace PedroEA;
+namespace PedroEA\Widgets;
 
 use \Elementor\Utils;
 use \Elementor\Widget_Base;
@@ -266,7 +266,7 @@ class Pea_Team extends Widget_Base {
 					],
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .pea-team-img' => 'width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pea-team-img' => 'height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -278,7 +278,7 @@ class Pea_Team extends Widget_Base {
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
-					'{{WRAPPER}} .pea-team-img' => 'margin-bottom: {{SIZE}}{{UNIT}} !important;',
+					'{{WRAPPER}} .pea-card-img' => 'margin-bottom: {{SIZE}}{{UNIT}} !important;',
 				],
 			]
 		);
@@ -306,7 +306,7 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Margin', 'pedro-elementor-addons' ),
+				'label'      => __( 'Border Radius', 'pedro-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'selectors'  => [
@@ -357,7 +357,7 @@ class Pea_Team extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .pea-team-img' => 'opacity: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pea-team-img img' => 'opacity: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -384,7 +384,7 @@ class Pea_Team extends Widget_Base {
 					]
 				],
 				'selectors' => [
-					'{{WRAPPER}} .pea-team-img' => 'opacity: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pea-team-img:hover img' => 'opacity: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -532,25 +532,13 @@ class Pea_Team extends Widget_Base {
 			]
 		);
 
-        // short bio
-        $this->add_responsive_control(
-			'short_bio_spacing',
-			[
-				'label'      => __( 'Short Bio Bottom Spacing', 'pedro-elementor-addons' ),
-				'type'       => Controls_Manager::SLIDER,
-				'size_units' => [ 'px'],
-                'separator'  => 'before',
-				'selectors'  => [
-					'{{WRAPPER}} .pea-short-disc' => 'margin-bottom: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
 
        $this->add_control(
 			'short_bio_color',
 			[
 				'label'     => __( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
+				'separator'  => 'before',
 				'selectors' => [
 					'{{WRAPPER}} .pea-short-disc' => 'color: {{VALUE}}',
 				],
@@ -720,10 +708,15 @@ class Pea_Team extends Widget_Base {
         
         $settings = $this->get_settings_for_display();
 
+		$this->add_render_attribute( 'team_image_attr', 'class', 'pea-team-img' );
+		$this->add_render_attribute( 'team_image_attr', 'src', esc_url( $settings['team_image']['url'] ) );
+		$this->add_render_attribute( 'team_image_attr', 'alt', esc_attr__( 'Team Member', 'pedro-elementor-addons' ) );
+
+
         ?>
             <div class="pea-team-card">
-                <div class="pea-card-img">
-                    <img class="pea-team-img" src="#" alt="Team Member">
+                  <div class="pea-card-img">
+                    <img <?php echo $this->get_render_attribute_string( 'team_image_attr' ); ?>>
                     <div class="pea-social-media">
                         <ul class="pea-social-media">
                             <li class="pea-item">
@@ -777,7 +770,6 @@ class Pea_Team extends Widget_Base {
                                 </a>
                             </li>
                         </ul>
-
                    </div>
                 </div>
                 <div class="pea-card-content">

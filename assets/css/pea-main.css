@@ -334,7 +334,7 @@
 .pea-team-card .pea-card-img {
     overflow: hidden;
     position: relative;
-    height: 250px;
+    min-height: 250px;
 }
 
 .pea-team-card .pea-card-img img {
@@ -416,12 +416,12 @@
     color: #2b2b2b
 }
 
-.pea-team-card .pea-card-content .pea-position {
+.pea-team-card .pea-team-position {
     font-weight: 500;
     margin-top: 0;
     padding: 0;
     text-transform: capitalize;
-    display: block;
+    display: inline-block;
     font-size: 14px;
     color: rgba(0, 0, 0, .5);
     margin-bottom: 5px;
