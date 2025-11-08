@@ -383,18 +383,12 @@
 }
 
 
-.pea-team-card .pea-card-img .pea-social-media .pea-item svg {
-    width: 18px;
-    height: 18px;
-    fill: #000;
+.pea-team-card .pea-card-img .pea-social-media .pea-item i{
+    color: #000;
 }
 
 .pea-team-card .pea-card-img .pea-social-media .pea-item a:hover {
     background: #000;
-}
-
-.pea-team-card .pea-card-img .pea-social-media .pea-item a:hover svg {
-    fill: #fff;
 }
 
 .pea-team-card .pea-card-content .pea-title {
