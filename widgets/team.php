@@ -169,6 +169,16 @@ class Pea_Team extends Widget_Base {
 	    $repeater = new Repeater();
 
 		$repeater->add_control(
+			'social_item',
+			[
+				'label'       => __( 'Social Name', 'pedro-elementor-addons' ),
+				'type'        => Controls_Manager::TEXT,
+				'default'     => __( 'Facebook', 'pedro-elementor-addons' ),
+				'placeholder' => __( 'Enter social name', 'pedro-elementor-addons' ),
+			]
+		);
+
+		$repeater->add_control(
 			'social_icon',
 			[
 				'label'       => __( 'Icon', 'pedro-elementor-addons' ),
@@ -195,13 +205,13 @@ class Pea_Team extends Widget_Base {
 		$this->add_control(
 			'social_list',
 			[
-				'label'   => __( 'Social Icons', 'pedro-elementor-addons' ),
-				'type'    => Controls_Manager::REPEATER,
-				'fields'  => $repeater->get_controls(),
-				'default' => [
+				'label'               => __( 'Social Icons', 'pedro-elementor-addons' ),
+				'type'                => Controls_Manager::REPEATER,
+				'fields'              => $repeater->get_controls(),
+				'default'             => [
 					[
 						'social_item' => __( 'Facebook', 'pedro-elementor-addons' ),
-						'social_icon' => [ 'value' => 'fab fa-facebook-f', 'library' => 'fa-brands' ],
+						'social_icon' => [ 'value' => 'fa fa-facebook', 'library' => 'fa-solid' ],
 						'social_link' => [ 'url' => '#' ],
 					]
 				],
@@ -647,7 +657,7 @@ class Pea_Team extends Widget_Base {
 				'label'     => __( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .pea-social-media li a' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pea-social-media li a i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -680,7 +690,7 @@ class Pea_Team extends Widget_Base {
 				'label'     => __( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .pea-social-media li a:hover' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pea-social-media li a:hover i' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -704,50 +714,46 @@ class Pea_Team extends Widget_Base {
 
     }
 
-    protected function render(): void {
-        
-        $settings = $this->get_settings_for_display();
+   protected function render(): void {
+    $settings = $this->get_settings_for_display();
 
-		$this->add_render_attribute( 'team_image_attr', 'class', 'pea-team-img' );
-		$this->add_render_attribute( 'team_image_attr', 'src', esc_url( $settings['team_image']['url'] ) );
-		$this->add_render_attribute( 'team_image_attr', 'alt', esc_attr__( 'Team Member', 'pedro-elementor-addons' ) );
+    // Team image
+    $this->add_render_attribute( 'team_image_attr', 'class', 'pea-team-img' );
+    $this->add_render_attribute( 'team_image_attr', 'src', esc_url( $settings['team_image']['url'] ) );
+    $this->add_render_attribute( 'team_image_attr', 'alt', esc_attr__( 'Team Member', 'pedro-elementor-addons' ) );
 
-        ?>
-            <div class="pea-team-card">
-                  <div class="pea-card-img">
-                    <img <?php echo $this->get_render_attribute_string( 'team_image_attr' ); ?>>
-                    <div class="pea-social-media">
-                        <ul class="pea-social-media">
-						<li class="pea-item">
-							<a href="#" target="_blank" rel="noopener">
-								<i class="fa fa-facebook"></i>
-							</a>
-						</li>
-						<li class="pea-item">
-							<a href="#" target="_blank" rel="noopener">
-								<i class="fa fa-twitter"></i>
-							</a>
-						</li>
-						<li class="pea-item">
-							<a href="#" target="_blank" rel="noopener">
-								<i class="fa fa-instagram"></i>
-							</a>
-						</li>
-						<li class="pea-item">
-							<a href="#" target="_blank" rel="noopener">
-								<i class="fa fa-linkedin"></i>
-							</a>
-						</li>
+    // Social item class (shared)
+    $this->add_render_attribute( 'social_item_attr', 'class', 'pea-item' );
+
+    ?>
+    <div class="pea-team-card">
+        <div class="pea-card-img">
+            <img <?php echo $this->get_render_attribute_string( 'team_image_attr' ); ?>>
+            <div class="pea-social-media">
+				<?php 
+				if ( $settings['show_social_profile'] ) : ?>
+					<ul class="pea-social-media">
+						<?php foreach ( $settings['social_list'] as $item ) : 
+							$icon = ! empty( $item['social_icon'] ) ? $item['social_icon'] : ['value' => 'fa fa-facebook'];
+							$link = ! empty( $item['social_link']['url'] ) ? $item['social_link']['url'] : '#';
+						?>
+							<li <?php echo $this->get_render_attribute_string( 'social_item_attr' ); ?>>
+								<a href="<?php echo esc_url( $link ); ?>">
+									<i class="<?php echo esc_attr( $icon['value'] ); ?>"></i>
+								</a>
+							</li>
+						<?php endforeach; ?>
 					</ul>
-                   </div>
-                </div>
-                <div class="pea-card-content">
-                    <h4 class="pea-team-title"><a href="#">Ema Jackson</a></h4>
-                    <span class="pea-team-position">Project Manager</span>
-                    <p class="pea-short-disc">A small river named Duden flows by their place and supplies it with the
-                        necessary</p>
-                </div>
+				<?php endif; ?>
             </div>
-      <?php
-    }
+        </div>
+        <div class="pea-card-content">
+            <h4 class="pea-team-title"><a href="#"><?php echo esc_html( $settings['team_name'] ?? 'Ema Jackson' ); ?></a></h4>
+            <span class="pea-team-position"><?php echo esc_html( $settings['team_position'] ?? 'Project Manager' ); ?></span>
+            <p class="pea-short-disc"><?php echo esc_html( $settings['team_description'] ?? 'A small river named Duden flows by their place and supplies it with the necessary' ); ?></p>
+        </div>
+    </div>
+    <?php
+}
+
 }
