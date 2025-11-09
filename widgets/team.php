@@ -591,7 +591,7 @@ class Pea_Team extends Widget_Base {
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
-					'{{WRAPPER}} .pea-social-media li > a i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pea-social-media li > a svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -604,6 +604,18 @@ class Pea_Team extends Widget_Base {
 				'size_units' => ['px'],
 				'selectors'  => [
 					'{{WRAPPER}} .pea-social-media' => 'margin-left: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'icon_spacing_bottom',
+			[
+				'label'      => __( 'Bottom Spacing', 'pedro-elementor-addons' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => ['px'],
+				'selectors'  => [
+					'{{WRAPPER}} .pea-social-media' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -657,7 +669,7 @@ class Pea_Team extends Widget_Base {
 				'label'     => __( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .pea-social-media li a i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pea-social-media li a svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
@@ -690,7 +702,7 @@ class Pea_Team extends Widget_Base {
 				'label'     => __( 'Color', 'pedro-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .pea-social-media li a:hover i' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .pea-social-media li a:hover svg' => 'fill: {{VALUE}}',
 				],
 			]
 		);
@@ -739,7 +751,9 @@ class Pea_Team extends Widget_Base {
 						?>
 							<li <?php echo $this->get_render_attribute_string( 'social_item_attr' ); ?>>
 								<a href="<?php echo esc_url( $link ); ?>">
-									<i class="<?php echo esc_attr( $icon['value'] ); ?>"></i>
+								   <?php if ( ! empty( $icon ) ) {
+									   Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] ); 
+									}?>
 								</a>
 							</li>
 						<?php endforeach; ?>
