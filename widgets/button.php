@@ -27,7 +27,7 @@ class Pea_Button extends Widget_Base {
 
 
    public function get_title(): string {
-       return __( 'Button', 'pedro-elementor-addons' );
+       return __( 'Button', 'pedro-for-elementor-addons' );
    }
 
 
@@ -53,7 +53,7 @@ class Pea_Button extends Widget_Base {
        $this->start_controls_section(
            'section_title',
            [
-               'label' => __( 'Button', 'pedro-elementor-addons' ),
+               'label' => __( 'Button', 'pedro-for-elementor-addons' ),
                'tab'   => Controls_Manager::TAB_CONTENT,
            ]
        );
@@ -62,9 +62,9 @@ class Pea_Button extends Widget_Base {
        $this->add_control(
            'button_text',
            [
-               'label'   => esc_html__( 'Text', 'pedro-elementor-addons' ),
+               'label'   => esc_html__( 'Text', 'pedro-for-elementor-addons' ),
                'type'    => Controls_Manager::TEXT,
-               'default' => esc_html__( 'Know More', 'pedro-elementor-addons' ),
+               'default' => esc_html__( 'Know More', 'pedro-for-elementor-addons' ),
            ]
        );
 
@@ -72,7 +72,7 @@ class Pea_Button extends Widget_Base {
        $this->add_control(
            'button_link',
            [
-               'label'   => esc_html__( 'Link', 'pedro-elementor-addons' ),
+               'label'   => esc_html__( 'Link', 'pedro-for-elementor-addons' ),
                'type'    => Controls_Manager::URL,
                'options' => [ 'url', 'is_external', 'nofollow' ],
                'default' => [
@@ -87,10 +87,10 @@ class Pea_Button extends Widget_Base {
         $this->add_control(
 			'pea_button_blend_toggle',
 			[
-				'label'        => esc_html__( 'Text Blend', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'Text Blend', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'On', 'pedro-elementor-addons' ),
-				'label_off'    => esc_html__( 'Off', 'pedro-elementor-addons' ),
+				'label_on'     => esc_html__( 'On', 'pedro-for-elementor-addons' ),
+				'label_off'    => esc_html__( 'Off', 'pedro-for-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -104,7 +104,7 @@ class Pea_Button extends Widget_Base {
        $this->start_controls_section(
            'style_section',
            [
-               'label'   => esc_html__( 'Style', 'pedro-elementor-addons' ),
+               'label'   => esc_html__( 'Style', 'pedro-for-elementor-addons' ),
                'tab'     => Controls_Manager::TAB_STYLE,
            ]
        );
@@ -135,7 +135,7 @@ class Pea_Button extends Widget_Base {
        $this->start_controls_tab(
            'style_normal_tab',
            [
-               'label'     => esc_html__( 'Normal', 'pedro-elementor-addons' ),
+               'label'     => esc_html__( 'Normal', 'pedro-for-elementor-addons' ),
            ]
        );
 
@@ -143,7 +143,7 @@ class Pea_Button extends Widget_Base {
         $this->add_control(
            'text-color',
            [
-               'label'     => esc_html__( 'Text Color', 'pedro-elementor-addons' ),
+               'label'     => esc_html__( 'Text Color', 'pedro-for-elementor-addons' ),
                'type'      => Controls_Manager::COLOR,
                'selectors' => [
                    '{{WRAPPER}} .pea-button' => 'color: {{VALUE}}',
@@ -169,7 +169,7 @@ class Pea_Button extends Widget_Base {
        $this->start_controls_tab(
            'style_hover_tab',
            [
-               'label'    => esc_html__( 'hover', 'pedro-elementor-addons' ),
+               'label'    => esc_html__( 'hover', 'pedro-for-elementor-addons' ),
            ]
        );
 
@@ -177,7 +177,7 @@ class Pea_Button extends Widget_Base {
         $this->add_control(
            'text-hover-color',
            [
-               'label'     => esc_html__( 'Text Color', 'pedro-elementor-addons' ),
+               'label'     => esc_html__( 'Text Color', 'pedro-for-elementor-addons' ),
                'type'      => Controls_Manager::COLOR,
                'selectors' => [
                    '{{WRAPPER}} .pea-button' => 'color: {{VALUE}}',
@@ -199,7 +199,7 @@ class Pea_Button extends Widget_Base {
         $this->add_control(
            'button_hover_color',
            [
-               'label'     => esc_html__( 'Button Color', 'pedro-elementor-addons' ),
+               'label'     => esc_html__( 'Button Color', 'pedro-for-elementor-addons' ),
                'type'      => Controls_Manager::COLOR,
                'selectors' => [
                    '{{WRAPPER}} .pea-button:hover' => 'border-color: {{VALUE}}',
@@ -250,7 +250,7 @@ class Pea_Button extends Widget_Base {
        $this->add_responsive_control(
            'button_padding',
            [
-               'label'      => esc_html__( 'Padding', 'pedro-elementor-addons' ),
+               'label'      => esc_html__( 'Padding', 'pedro-for-elementor-addons' ),
                'type'       => Controls_Manager::DIMENSIONS,
                'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
                'separator'  => 'before',

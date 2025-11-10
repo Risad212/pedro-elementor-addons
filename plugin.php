@@ -45,7 +45,7 @@ class Plugin {
 		$elements_manager->add_category(
 			'pedro',
 			[
-				'title' => __( 'Pedro', 'pedro-elementor-addons' ), 
+				'title' => __( 'Pedro', 'pedro-for-elementor-addons' ), 
 			]
 		);
 	}

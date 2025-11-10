@@ -1,4 +1,4 @@
-=== Pedro Elementor Addon ===
+=== Pedro For Elementor Addon ===
 
 Contributors: hmrisad
 Tags: pedro, elementor, addon, widgets
@@ -13,7 +13,7 @@ A custom Elementor addon that provides additional widgets and functionality for 
 
 == Description ==
 
-Pedro Elementor Addon is a lightweight and powerful plugin that adds custom Elementor widgets and features designed specifically for the [Pedro](https://wordpress.org/themes/pedro/) theme.  
+Pedro For Elementor Addon is a lightweight and powerful plugin that adds custom Elementor widgets and features designed specifically for the [Pedro](https://wordpress.org/themes/pedro/) theme.  
 Enhance your page-building experience with pre-designed widgets and styling options built to perfectly match the Pedro theme’s design system.
 
 == Features ==
@@ -27,8 +27,8 @@ Enhance your page-building experience with pre-designed widgets and styling opti
 *** From your WordPress dashboard ***
 
 1. Visit 'Plugins > Add New'.
-2. Search for 'Pedro Elementor Addon' and install the plugin.
-3. Activate 'Pedro Elementor Addon' from your Plugins page.
+2. Search for 'Pedro For Elementor Addon' and install the plugin.
+3. Activate 'Pedro For Elementor Addon' from your Plugins page.
 4. Make sure Elementor is installed and activated.
 
 == Frequently Asked Questions ==
@@ -48,5 +48,5 @@ No external dependencies or frameworks are required.
 
 == Copyright ==
 
-Pedro Elementor Addon, Copyright 2025 HM Risad.
-Pedro Elementor Addon is distributed under the terms of the GNU General Public License v3.0.
+Pedro For Elementor Addon, Copyright 2025 HM Risad.
+Pedro For Elementor Addon is distributed under the terms of the GNU General Public License v3.0.

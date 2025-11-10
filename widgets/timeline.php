@@ -26,7 +26,7 @@ class Pea_Timeline extends Widget_Base {
 	}
 
 	public function get_title(): string {
-		return __( 'Timeline', 'pedro-elementor-addons' );
+		return __( 'Timeline', 'pedro-for-elementor-addons' );
 	}
 
 	public function get_icon(): string {
@@ -46,7 +46,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Content', 'pedro-elementor-addons' ),
+				'label' => esc_html__( 'Content', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -56,7 +56,7 @@ class Pea_Timeline extends Widget_Base {
 		$repeater->add_control(
 			'icon',
 			[
-				'label'        => esc_html__( 'Icon', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'Icon', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::ICONS,
 				'default'      => [
 					'value'    => 'fa-solid fa-graduation-cap',
@@ -68,9 +68,9 @@ class Pea_Timeline extends Widget_Base {
 		$repeater->add_control(
 			'title',
 			[
-				'label'       => esc_html__( 'Title', 'pedro-elementor-addons' ),
+				'label'       => esc_html__( 'Title', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Timeline Title', 'pedro-elementor-addons' ),
+				'default'     => esc_html__( 'Timeline Title', 'pedro-for-elementor-addons' ),
 				'label_block' => true,
 			]
 		);
@@ -78,9 +78,9 @@ class Pea_Timeline extends Widget_Base {
 		$repeater->add_control(
 			'education_info',
 			[
-				'label'       => esc_html__( 'Education Info', 'pedro-elementor-addons' ),
+				'label'       => esc_html__( 'Education Info', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => esc_html__( 'Computer Science at Harvard University', 'pedro-elementor-addons' ),
+				'default'     => esc_html__( 'Computer Science at Harvard University', 'pedro-for-elementor-addons' ),
 				'label_block' => true,
 			]
 		);
@@ -88,9 +88,9 @@ class Pea_Timeline extends Widget_Base {
 		$repeater->add_control(
 			'description',
 			[
-				'label'       => esc_html__( 'Description', 'pedro-elementor-addons' ),
+				'label'       => esc_html__( 'Description', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
-				'default'     => esc_html__( 'Page layouts look better with something in each section.', 'pedro-elementor-addons' ),
+				'default'     => esc_html__( 'Page layouts look better with something in each section.', 'pedro-for-elementor-addons' ),
 				'label_block' => true,
 			]
 		);
@@ -98,17 +98,17 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'timeline_list',
 			[
-				'label'       => esc_html__( 'Timeline', 'pedro-elementor-addons' ),
+				'label'       => esc_html__( 'Timeline', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'default' => [
 					[
-						'list_title'   => esc_html__( 'Title #1', 'pedro-elementor-addons' ),
-						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'pedro-elementor-addons' ),
+						'list_title'   => esc_html__( 'Title #1', 'pedro-for-elementor-addons' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'pedro-for-elementor-addons' ),
 					],
 					[
-						'list_title'   => esc_html__( 'Title #2', 'pedro-elementor-addons' ),
-						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'pedro-elementor-addons' ),
+						'list_title'   => esc_html__( 'Title #2', 'pedro-for-elementor-addons' ),
+						'list_content' => esc_html__( 'Item content. Click the edit button to change this text.', 'pedro-for-elementor-addons' ),
 					]
 				],
 				'title_field' => '{{{ title }}}',
@@ -118,10 +118,10 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'switch_icon',
 			[
-				'label'        => esc_html__( 'Icon', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'Icon', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
-				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -131,10 +131,10 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'switch_title',
 			[
-				'label'        => esc_html__( 'Title', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'Title', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
-				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -143,10 +143,10 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'switch_education',
 			[
-				'label'        => esc_html__( 'education info', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'education info', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
-				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -155,10 +155,10 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'switch_discription',
 			[
-				'label'        => esc_html__( 'discription', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'discription', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
-				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -170,7 +170,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'icon_section',
 			[
-				'label' => esc_html__( 'Icon', 'pedro-elementor-addons' ),
+				'label' => esc_html__( 'Icon', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -178,7 +178,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label'        => esc_html__( 'Size', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'Size', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'size_units'   => [ 'px', '%', 'em', 'rem', 'custom' ],
 				'range'        => [
@@ -200,7 +200,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			  'icon_color',
 			[
-				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
+				'label'     => esc_html__( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-icon svg' => 'fill: {{VALUE}}',
@@ -211,7 +211,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->add_control(
 			  'icon_bg_color',
 			[
-				'label'     => esc_html__( 'Background Color', 'pedro-elementor-addons' ),
+				'label'     => esc_html__( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-icon' => 'background: {{VALUE}}',
@@ -242,7 +242,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'title_section',
 			[
-				'label' => esc_html__( 'Title', 'pedro-elementor-addons' ),
+				'label' => esc_html__( 'Title', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -258,7 +258,7 @@ class Pea_Timeline extends Widget_Base {
 			$this->add_control(
 			  'title_color',
 			[
-				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
+				'label'     => esc_html__( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-title' => 'color: {{VALUE}}',
@@ -272,7 +272,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'education_section',
 			[
-				'label' => esc_html__( 'Education', 'pedro-elementor-addons' ),
+				'label' => esc_html__( 'Education', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -288,7 +288,7 @@ class Pea_Timeline extends Widget_Base {
 			$this->add_control(
 			  'education_color',
 			[
-				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
+				'label'     => esc_html__( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-title-text' => 'color: {{VALUE}}',
@@ -302,7 +302,7 @@ class Pea_Timeline extends Widget_Base {
 		$this->start_controls_section(
 			'discription_section',
 			[
-				'label' => esc_html__( 'Discription', 'pedro-elementor-addons' ),
+				'label' => esc_html__( 'Discription', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -318,7 +318,7 @@ class Pea_Timeline extends Widget_Base {
 			$this->add_control(
 			  'discription_color',
 			[
-				'label'     => esc_html__( 'Color', 'pedro-elementor-addons' ),
+				'label'     => esc_html__( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-description' => 'color: {{VALUE}}',

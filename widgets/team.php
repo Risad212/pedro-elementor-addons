@@ -26,11 +26,11 @@ class Pea_Team extends Widget_Base {
     }
 
     public function get_title(): string {
-        return __( 'Team', 'pedro-elementor-addons' );
+        return __( 'Team', 'pedro-for-elementor-addons' );
     }
 
     public function get_icon(): string {
-        return 'eicon-person pedro-elementor-icon';
+        return 'pedro-elementor-icon eicon-person';
     }
 
     public function get_categories(): array {
@@ -47,7 +47,7 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_section(
             'section_title',
             [
-                'label'   => __( 'Information', 'pedro-elementor-addons' ),
+                'label'   => __( 'Information', 'pedro-for-elementor-addons' ),
                 'tab'     => Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -55,7 +55,7 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
 			'team_image',
 			[
-				'label'   => __( 'Choose Image', 'pedro-elementor-addons' ),
+				'label'   => __( 'Choose Image', 'pedro-for-elementor-addons' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => [
 					'url' => Utils::get_placeholder_image_src(),
@@ -75,22 +75,22 @@ class Pea_Team extends Widget_Base {
         	$this->add_control(
 			 'team_name',
 			[
-				'label'       => __( 'Name', 'pedro-elementor-addons' ),
+				'label'       => __( 'Name', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-				'default'     => __( 'Pedro Team Member', 'pedro-elementor-addons' ),
-				'placeholder' => __( 'Type Member Name',  'pedro-elementor-addons' ),
+				'default'     => __( 'Pedro Team Member', 'pedro-for-elementor-addons' ),
+				'placeholder' => __( 'Type Member Name',  'pedro-for-elementor-addons' ),
 			]
 		);
 
         $this->add_control(
 			 'job_title',
 			[
-				'label'       => __( 'Job Title', 'pedro-elementor-addons' ),
+				'label'       => __( 'Job Title', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
                 'label_block' => true,
-				'default'     => __( 'Pedro Office', 'pedro-elementor-addons' ),
-				'placeholder' => __( 'Type Member Job Title',  'pedro-elementor-addons' ),
+				'default'     => __( 'Pedro Office', 'pedro-for-elementor-addons' ),
+				'placeholder' => __( 'Type Member Job Title',  'pedro-for-elementor-addons' ),
 			]
 		);
 
@@ -98,28 +98,28 @@ class Pea_Team extends Widget_Base {
 		$this->add_control(
 			'team_bio',
 			[
-				'label'       => __( 'Short Bio', 'pedro-elementor-addons' ),
+				'label'       => __( 'Short Bio', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXTAREA,
 				'rows'        => 5,
-				'placeholder' => __( 'A Happy Pedro Member!', 'pedro-elementor-addons' ),
+				'placeholder' => __( 'A Happy Pedro Member!', 'pedro-for-elementor-addons' ),
 			]
 		);
 
         $this->add_control(
             'title_tag',
             [
-                'label'    => __( 'Title HTML Tag', 'pedro-elementor-addons' ),
+                'label'    => __( 'Title HTML Tag', 'pedro-for-elementor-addons' ),
                 'type'     => Controls_Manager::SELECT,
                 'default'  => 'h2',
                 'options'  => [
-                    'h1'   => __(  'H1', 'pedro-elementor-addons' ),
-                    'h2'   => __(  'H2', 'pedro-elementor-addons' ),
-                    'h3'   => __(  'H3', 'pedro-elementor-addons' ),
-                    'h4'   => __(  'H4', 'pedro-elementor-addons' ),
-                    'h5'   => __(  'H5', 'pedro-elementor-addons' ),
-                    'h6'   => __(  'H6', 'pedro-elementor-addons' ),
-                    'div'  => __(  'DIV', 'pedro-elementor-addons' ),
-                    'span' => __(  'SPAN', 'pedro-elementor-addons' ),
+                    'h1'   => __(  'H1', 'pedro-for-elementor-addons' ),
+                    'h2'   => __(  'H2', 'pedro-for-elementor-addons' ),
+                    'h3'   => __(  'H3', 'pedro-for-elementor-addons' ),
+                    'h4'   => __(  'H4', 'pedro-for-elementor-addons' ),
+                    'h5'   => __(  'H5', 'pedro-for-elementor-addons' ),
+                    'h6'   => __(  'H6', 'pedro-for-elementor-addons' ),
+                    'div'  => __(  'DIV', 'pedro-for-elementor-addons' ),
+                    'span' => __(  'SPAN', 'pedro-for-elementor-addons' ),
                 ],
             ]
         );
@@ -127,23 +127,23 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
 			'team_align',
 			[
-				'label'          => __( 'Alignment', 'pedro-elementor-addons' ),
+				'label'          => __( 'Alignment', 'pedro-for-elementor-addons' ),
 				'type'           => Controls_Manager::CHOOSE,
 				'options'        => [
 					'left'       => [
-						'title'  => __( 'Left', 'pedro-elementor-addons' ),
+						'title'  => __( 'Left', 'pedro-for-elementor-addons' ),
 						'icon'   => 'eicon-text-align-left',
 					],
 					'center'     => [
-						'title'  => __( 'Center', 'pedro-elementor-addons' ),
+						'title'  => __( 'Center', 'pedro-for-elementor-addons' ),
 						'icon'   => 'eicon-text-align-center',
 					],
 					'right'      => [
-						'title'  => __( 'Right', 'pedro-elementor-addons' ),
+						'title'  => __( 'Right', 'pedro-for-elementor-addons' ),
 						'icon'   => 'eicon-text-align-right',
 					],
 					'justify'    => [
-						'title'  => __( 'Justify', 'pedro-elementor-addons' ),
+						'title'  => __( 'Justify', 'pedro-for-elementor-addons' ),
 						'icon'   => 'eicon-text-align-justify',
 					],
 				],
@@ -160,7 +160,7 @@ class Pea_Team extends Widget_Base {
 		$this->start_controls_section(
 			'social_section',
 			[
-				'label' => __( 'Social Profiles', 'pedro-elementor-addons' ),
+				'label' => __( 'Social Profiles', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -171,17 +171,17 @@ class Pea_Team extends Widget_Base {
 		$repeater->add_control(
 			'social_item',
 			[
-				'label'       => __( 'Social Name', 'pedro-elementor-addons' ),
+				'label'       => __( 'Social Name', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
-				'default'     => __( 'Facebook', 'pedro-elementor-addons' ),
-				'placeholder' => __( 'Enter social name', 'pedro-elementor-addons' ),
+				'default'     => __( 'Facebook', 'pedro-for-elementor-addons' ),
+				'placeholder' => __( 'Enter social name', 'pedro-for-elementor-addons' ),
 			]
 		);
 
 		$repeater->add_control(
 			'social_icon',
 			[
-				'label'       => __( 'Icon', 'pedro-elementor-addons' ),
+				'label'       => __( 'Icon', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::ICONS,
 				'default'     => [
 					'value'   => 'fab fa-facebook-f',
@@ -193,9 +193,9 @@ class Pea_Team extends Widget_Base {
 		$repeater->add_control(
 			'social_link',
 			[
-				'label'       => __( 'Link', 'pedro-elementor-addons' ),
+				'label'       => __( 'Link', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::URL,
-				'placeholder' => __( '#', 'pedro-elementor-addons' ),
+				'placeholder' => __( '#', 'pedro-for-elementor-addons' ),
 				'default'     => [
 					'url'     => '#',
 				],
@@ -205,12 +205,12 @@ class Pea_Team extends Widget_Base {
 		$this->add_control(
 			'social_list',
 			[
-				'label'               => __( 'Social Icons', 'pedro-elementor-addons' ),
+				'label'               => __( 'Social Icons', 'pedro-for-elementor-addons' ),
 				'type'                => Controls_Manager::REPEATER,
 				'fields'              => $repeater->get_controls(),
 				'default'             => [
 					[
-						'social_item' => __( 'Facebook', 'pedro-elementor-addons' ),
+						'social_item' => __( 'Facebook', 'pedro-for-elementor-addons' ),
 						'social_icon' => [ 'value' => 'fa fa-facebook', 'library' => 'fa-solid' ],
 						'social_link' => [ 'url' => '#' ],
 					]
@@ -222,10 +222,10 @@ class Pea_Team extends Widget_Base {
 		$this->add_control(
 			'show_social_profile',
 			[
-				'label'        => esc_html__( 'Show Icons', 'pedro-elementor-addons' ),
+				'label'        => esc_html__( 'Show Icons', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SWITCHER,
-				'label_on'     => esc_html__( 'Show', 'pedro-elementor-addons' ),
-				'label_off'    => esc_html__( 'Hide', 'pedro-elementor-addons' ),
+				'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
+				'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
 				'return_value' => 'yes',
 				'default'      => 'yes',
 			]
@@ -237,7 +237,7 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_section(
 			'style_section',
 			[
-				'label' => __( 'Photo', 'pedro-elementor-addons' ),
+				'label' => __( 'Photo', 'pedro-for-elementor-addons' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		 );
@@ -245,7 +245,7 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
 			'image_width',
 			[
-				'label'       => __( 'Width', 'pedro-elementor-addons' ),
+				'label'       => __( 'Width', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px', '%'],
 				'range'       => [
@@ -267,7 +267,7 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
 			'image_height',
 			[
-				'label'       => __( 'Height', 'pedro-elementor-addons' ),
+				'label'       => __( 'Height', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::SLIDER,
 				'range'       => [
 					'px'      => [
@@ -284,7 +284,7 @@ class Pea_Team extends Widget_Base {
         	$this->add_responsive_control(
 			'image_spacing',
 			[
-				'label'      => __( 'Bottom Spacing', 'pedro-elementor-addons' ),
+				'label'      => __( 'Bottom Spacing', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -296,7 +296,7 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
 			'image_padding',
 			[
-				'label'      => __( 'Padding', 'pedro-elementor-addons' ),
+				'label'      => __( 'Padding', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%', 'em'],
 				'selectors'  => [
@@ -316,7 +316,7 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
 			'image_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'pedro-elementor-addons' ),
+				'label'      => __( 'Border Radius', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px'],
 				'selectors'  => [
@@ -336,7 +336,7 @@ class Pea_Team extends Widget_Base {
         	$this->add_control(
 			'background_color',
 			[
-				'label'     => __( 'Background Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-team-img' => 'background: {{VALUE}}',
@@ -350,14 +350,14 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_tab(
             'tab_image_opacity_normal',
             [
-                'label' => __( 'Normal', 'pedro-elementor-addons' ),
+                'label' => __( 'Normal', 'pedro-for-elementor-addons' ),
             ]
         );
 
         $this->add_control(
 			'image_opacity_normal',
 			[
-				'label'        => __( 'Opacity', 'pedro-elementor-addons' ),
+				'label'        => __( 'Opacity', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -377,14 +377,14 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_tab(
             'tab_image_opacity_hover',
             [
-                'label' => __( 'Hover', 'pedro-elementor-addons' ),
+                'label' => __( 'Hover', 'pedro-for-elementor-addons' ),
             ]
         );
 
         $this->add_control(
 			'image_opacity_hover',
 			[
-				'label'        => __( 'Opacity', 'pedro-elementor-addons' ),
+				'label'        => __( 'Opacity', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -402,7 +402,7 @@ class Pea_Team extends Widget_Base {
         $this->add_control(
 			'img_hover_transition',
 			[
-				'label'        => __( 'Transition Duration', 'pedro-elementor-addons' ),
+				'label'        => __( 'Transition Duration', 'pedro-for-elementor-addons' ),
 				'type'         => Controls_Manager::SLIDER,
 				'range'        => [
 					'px'       => [
@@ -440,7 +440,7 @@ class Pea_Team extends Widget_Base {
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __( 'Name, Job Title & Bio', 'pedro-elementor-addons' ),
+                'label' => __( 'Name, Job Title & Bio', 'pedro-for-elementor-addons' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -448,7 +448,7 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
             'Content Padding',
             [
-                'label'      => __( 'Content Padding', 'pedro-elementor-addons' ),
+                'label'      => __( 'Content Padding', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
                 'selectors'  => [
@@ -460,7 +460,7 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
 			'title_spacing',
 			[
-				'label'      => __( 'Name Bottom Spacing', 'pedro-elementor-addons' ),
+				'label'      => __( 'Name Bottom Spacing', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px'],
                 'separator'  => 'before',
@@ -473,7 +473,7 @@ class Pea_Team extends Widget_Base {
        $this->add_control(
 			'name_color',
 			[
-				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-team-title a' => 'color: {{VALUE}}',
@@ -503,7 +503,7 @@ class Pea_Team extends Widget_Base {
         $this->add_responsive_control(
 			'job_title_spacing',
 			[
-				'label'      => __( 'Job Title Bottom Spacing', 'pedro-elementor-addons' ),
+				'label'      => __( 'Job Title Bottom Spacing', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => [ 'px'],
                 'separator' => 'before',
@@ -516,7 +516,7 @@ class Pea_Team extends Widget_Base {
        $this->add_control(
 			'job_title_color',
 			[
-				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-team-position' => 'color: {{VALUE}}',
@@ -546,7 +546,7 @@ class Pea_Team extends Widget_Base {
        $this->add_control(
 			'short_bio_color',
 			[
-				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'separator'  => 'before',
 				'selectors' => [
@@ -579,7 +579,7 @@ class Pea_Team extends Widget_Base {
 		$this->start_controls_section(
 		'social_icon_section',
 		[
-			'label' => __( 'Social Icons', 'pedro-elementor-addons' ),
+			'label' => __( 'Social Icons', 'pedro-for-elementor-addons' ),
 			'tab'   => Controls_Manager::TAB_STYLE,
 		]
 	   );
@@ -587,7 +587,7 @@ class Pea_Team extends Widget_Base {
 	  $this->add_responsive_control(
 			'icon_size',
 			[
-				'label'      => __( 'Icon Size', 'pedro-elementor-addons' ),
+				'label'      => __( 'Icon Size', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -599,7 +599,7 @@ class Pea_Team extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_spacing',
 			[
-				'label'      => __( 'Left Spacing', 'pedro-elementor-addons' ),
+				'label'      => __( 'Left Spacing', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -611,7 +611,7 @@ class Pea_Team extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_spacing_bottom',
 			[
-				'label'      => __( 'Bottom Spacing', 'pedro-elementor-addons' ),
+				'label'      => __( 'Bottom Spacing', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -623,7 +623,7 @@ class Pea_Team extends Widget_Base {
 		$this->add_responsive_control(
 			'icon_padding',
 			[
-				'label'      => __( 'Padding', 'pedro-elementor-addons' ),
+				'label'      => __( 'Padding', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => ['px'],
 				'selectors'  => [
@@ -643,7 +643,7 @@ class Pea_Team extends Widget_Base {
 		$this->add_responsive_control(
 			'links_border_radius',
 			[
-				'label'      => __( 'Border Radius', 'pedro-elementor-addons' ),
+				'label'      => __( 'Border Radius', 'pedro-for-elementor-addons' ),
 				'type'       => Controls_Manager::DIMENSIONS,
 				'size_units' => [ 'px', '%' ],
 				'selectors'  => [
@@ -659,14 +659,14 @@ class Pea_Team extends Widget_Base {
 		$this->start_controls_tab(
 			'style_normal_tab',
 			[
-				'label' => __( 'Normal', 'pedro-elementor-addons' ),
+				'label' => __( 'Normal', 'pedro-for-elementor-addons' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_normal',
 			[
-				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-social-media li a svg' => 'fill: {{VALUE}}',
@@ -677,7 +677,7 @@ class Pea_Team extends Widget_Base {
 		$this->add_control(
 			'icon_color_bg_normal',
 			[
-				'label'     => __( 'Background Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-social-media li a' => 'background: {{VALUE}}',
@@ -692,14 +692,14 @@ class Pea_Team extends Widget_Base {
 		$this->start_controls_tab(
 			'style_hover_tab',
 			[
-				'label' => __( 'Hover', 'pedro-elementor-addons' ),
+				'label' => __( 'Hover', 'pedro-for-elementor-addons' ),
 			]
 		);
 
 		$this->add_control(
 			'icon_color_hover',
 			[
-				'label'     => __( 'Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-social-media li a:hover svg' => 'fill: {{VALUE}}',
@@ -710,7 +710,7 @@ class Pea_Team extends Widget_Base {
 		$this->add_control(
 			'icon_color_bg_hover',
 			[
-				'label'     => __( 'Background Color', 'pedro-elementor-addons' ),
+				'label'     => __( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-social-media li a:hover' => 'background: {{VALUE}}',
@@ -732,7 +732,7 @@ class Pea_Team extends Widget_Base {
     // Team image
     $this->add_render_attribute( 'team_image_attr', 'class', 'pea-team-img' );
     $this->add_render_attribute( 'team_image_attr', 'src', esc_url( $settings['team_image']['url'] ) );
-    $this->add_render_attribute( 'team_image_attr', 'alt', esc_attr__( 'Team Member', 'pedro-elementor-addons' ) );
+    $this->add_render_attribute( 'team_image_attr', 'alt', esc_attr__( 'Team Member', 'pedro-for-elementor-addons' ) );
 
     // Social item class (shared)
     $this->add_render_attribute( 'social_item_attr', 'class', 'pea-item' );
