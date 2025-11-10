@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Pedro Elementor Addons
+ * Plugin Name:       Pedro For Elementor Addons
  * Plugin URI: 
  * Description:       Elementor Addon For The Elementor Themes.
  * Version:           1.0.0
@@ -10,7 +10,7 @@
  * Author URI:        
  * License:           GPLv3
  * License URI:       http://www.gnu.org/licenses/gpl.html
- * Text Domain:       pedro-elementor-addons
+ * Text Domain:       pedro-for-elementor-addons
  * Requires Plugins:  elementor
  * Requires Elementor: 3.5.0
  */
@@ -103,9 +103,9 @@ final class Pedro_Elementor_Addon {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			__( '"%1$s" requires "%2$s" to be installed and activated.', 'pedro-elementor-addons' ),
-			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'pedro-elementor-addons' ) . '</strong>'
+			__( '"%1$s" requires "%2$s" to be installed and activated.', 'pedro-for-elementor-addons' ),
+			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-for-elementor-addons' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'pedro-for-elementor-addons' ) . '</strong>'
 		);
 
 		printf(
@@ -125,9 +125,9 @@ final class Pedro_Elementor_Addon {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-elementor-addons' ),
-			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'pedro-elementor-addons' ) . '</strong>',
+			__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-for-elementor-addons' ),
+			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-for-elementor-addons' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'pedro-for-elementor-addons' ) . '</strong>',
 			esc_html( self::MINIMUM_ELEMENTOR_VERSION )
 		);
 
@@ -148,9 +148,9 @@ final class Pedro_Elementor_Addon {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-elementor-addons' ),
-			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-elementor-addons' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'pedro-elementor-addons' ) . '</strong>',
+			__( '"%1$s" requires "%2$s" version %3$s or greater.', 'pedro-for-elementor-addons' ),
+			'<strong>' . esc_html__( 'Pedro Elementor Addon', 'pedro-for-elementor-addons' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'pedro-for-elementor-addons' ) . '</strong>',
 			esc_html( self::MINIMUM_PHP_VERSION )
 		);
 
