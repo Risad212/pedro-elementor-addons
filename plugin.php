@@ -27,15 +27,18 @@ class Plugin {
 	 * Register Widgets
 	 */
 	public function register_widgets( $widgets_manager ) {
+		
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
 		require_once PEA_PLUGIN_PATH . 'widgets/timeline.php';
 		require_once PEA_PLUGIN_PATH . 'widgets/button.php';
 		require_once PEA_PLUGIN_PATH . 'widgets/team.php';
-
+        require_once PEA_PLUGIN_PATH . 'widgets/accordion.php';
+		
 		$widgets_manager->register( new Pea_Testimonial() );
 		$widgets_manager->register( new Pea_Timeline() );
 		$widgets_manager->register( new Pea_Button() );
 		$widgets_manager->register( new Pea_Team() );
+		$widgets_manager->register( new Pea_Accordion() );
 	}
 
 	/**
