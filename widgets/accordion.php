@@ -6,9 +6,7 @@ use \Elementor\Widget_Base;
 use \Elementor\Controls_Manager;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Text_Shadow;
-use \Elementor\Group_Control_Image_Size;
 use \Elementor\Icons_Manager;
-use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Repeater;
 
@@ -43,51 +41,113 @@ class Pea_Accordion extends Widget_Base {
     // Start content controls
     protected function register_controls() {
 
-       
+      $this->start_controls_section(
+            'section_title',
+            [
+                'label'   => __( 'Layout', 'pedro-for-elementor-addons' ),
+                'tab'     => Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $repeater = new Repeater();
+
+        // Title
+        $repeater->add_control(
+            'title',
+            [
+                'label'       => __('Title', 'pea-for-elementor-addons'),
+                'type'        => Controls_Manager::TEXT,
+                'default'     => __('Title', 'pea-for-elementor-addons'),
+                'label_block' => true,
+            ]
+        );
+
+        // Icon
+        $repeater->add_control(
+            'icon',
+            [
+                'label'       => __('Icon', 'pea-for-elementor-addons'),
+                'type'        => Controls_Manager::ICONS,
+                'default'     => [
+                    'value'   => 'fas fa-chevron-right',
+                    'library' => 'fa-solid',
+                ],
+            ]
+        );
+
+        // Content/Description
+        $repeater->add_control(
+            'content',
+            [
+                'label'      => __('Content', 'pea-for-elementor-addons'),
+                'type'       => Controls_Manager::TEXTAREA,
+                'default'    => __('Accordion content goes here...', 'pea-for-elementor-addons'),
+                'show_label' => true,
+            ]
+        );
+
+        // Add the repeater to the widget
+        $this->add_control(
+            'accordion_list',
+            [
+                'label' => __('Accordion Items', 'pea-for-elementor-addons'),
+                'type' => Controls_Manager::REPEATER,
+                'fields' => $repeater->get_controls(),
+                'default' => [
+                    [
+                        'title'   => __('Accordion 1', 'pea-for-elementor-addons'),
+                        'content' => __('Accordion content 1', 'pea-for-elementor-addons'),
+                    ],
+                    [
+                        'title'   => __('Accordion 2', 'pea-for-elementor-addons'),
+                        'content' => __('Accordion content 2', 'pea-for-elementor-addons'),
+                    ],
+                ],
+                'title_field' => '{{{ title }}}',
+            ]
+        );
+              
 
     }
 
    protected function render(): void {
     $settings = $this->get_settings_for_display();
 
+    $accortion_list = $settings['accordion_list'];
 
+    // var_dump( $accortion_list );
+
+    if( empty( $accortion_list ) ){
+        return;
+    }
+    
     ?>
-     <div class="accordion-container">
-        <div class="accordion-item">
-        <div class="accordion-trigger">
-            <div class="accordion-title">What is Webflow and why is it the best website builder?</div>
-            <div class="accordion-arrow">
-            <div class="accordion-arrow-icon">
-                <svg viewBox="-12 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>angle-right</title> <path d="M0.88 23.28c-0.2 0-0.44-0.080-0.6-0.24-0.32-0.32-0.32-0.84 0-1.2l5.76-5.84-5.8-5.84c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l6.44 6.44c0.16 0.16 0.24 0.36 0.24 0.6s-0.080 0.44-0.24 0.6l-6.4 6.44c-0.2 0.16-0.4 0.24-0.6 0.24z"></path> </g></svg>
+     <div class="pea-accordion-container">
+      <?php foreach( $accortion_list as $item ){?>
+         <div class="pea-accordion-item">
+        <div class="pea-accordion-trigger">
+          <div class="pea-accordion-title">
+            <?php echo esc_html($item['title']); ?>
+          </div>
+          <div class="pea-accordion-arrow">
+            <div class="pea-accordion-arrow-icon">
+                <?php if (!empty($item['icon'])) {
+                   Icons_Manager::render_icon($item['icon'], [
+                      'aria-hidden' => 'true',
+                  ]);
+                  }?>
             </div>
-            </div>
+          </div>
         </div>
-        <div class="accordion-content">
-            <div class="accordion-content-inner">
-            <p class="accordion-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-        </div>
-
-    <div class="accordion-item">
-      <div class="accordion-trigger">
-        <div class="accordion-title">How do I get started with Webflow?</div>
-        <div class="accordion-arrow">
-          <div class="accordion-arrow-icon">
-            <svg viewBox="-12 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>angle-right</title> <path d="M0.88 23.28c-0.2 0-0.44-0.080-0.6-0.24-0.32-0.32-0.32-0.84 0-1.2l5.76-5.84-5.8-5.84c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l6.44 6.44c0.16 0.16 0.24 0.36 0.24 0.6s-0.080 0.44-0.24 0.6l-6.4 6.44c-0.2 0.16-0.4 0.24-0.6 0.24z"></path> </g></svg>
+        <div class="pea-accordion-content">
+          <div class="pea-accordion-content-inner">
+            <p class="pea-accordion-paragraph">
+              <?php echo  $item['content'] ?>
+            </p>
           </div>
         </div>
       </div>
-      <div class="accordion-content">
-        <div class="accordion-content-inner">
-          <p class="accordion-paragraph">Getting started is easy! Simply sign up for a free account, choose a template
-            or start from scratch, and begin designing your website with our intuitive drag-and-drop interface. No
-            coding required!</p>
-        </div>
-      </div>
-    </div>
+      <?php } ?>
     </div>
 
     <?php }
