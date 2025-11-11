@@ -6,6 +6,7 @@ use PedroEA\Widgets\Pea_Testimonial;
 use PedroEA\Widgets\Pea_Timeline;
 use PedroEA\Widgets\Pea_Button;
 use PedroEA\Widgets\Pea_Team;
+use PedroEA\Widgets\Pea_Accordion;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {

@@ -424,3 +424,120 @@
 .pea-team-card .pea-short-disc {
     margin: 0;
 }
+
+/*==========================================
+   Accordion
+==========================================*/
+.accordion-container {
+    max-width: 700px;
+    width: 100%;
+}
+
+.accordion-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.accordion-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    flex: 1;
+}
+
+.accordion-arrow {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 16px;
+    box-shadow: 0 5px 16px 0 rgba(8, 15, 52, 0.06);
+}
+
+.accordion-arrow-icon {
+    position: relative;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    line-height: 0;
+}
+
+.accordion-arrow-icon svg{
+    width: 100%;
+}
+
+.arrow-line {
+    position: absolute;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.accordion-paragraph {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 15px;
+    padding: 0 24px;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.accordion-item.active .accordion-arrow-icon {
+    transform: rotate(90deg);
+}
+
+.accordion-item.active .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+.accordion-item.active .accordion-paragraph {
+    opacity: 1;
+    transform: translateY(0);
+    padding: 0 24px 24px 24px;
+    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+}
+
+.accordion-item.active .accordion-arrow {
+    background-color: #5b47ff;
+}
+
+.accordion-item.active .accordion-arrow svg{
+   fill: #fff;
+}
