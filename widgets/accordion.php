@@ -67,9 +67,9 @@ class Pea_Accordion extends Widget_Base {
         $repeater->add_control(
             'icon',
             [
-                'label'   => __( 'Icon', 'pea-for-elementor-addons' ),
-                'type'    => Controls_Manager::ICONS,
-                'default' => [
+                'label'       => __( 'Icon', 'pea-for-elementor-addons' ),
+                'type'        => Controls_Manager::ICONS,
+                'default'     => [
                     'value'   => 'fas fa-chevron-right',
                     'library' => 'fa-solid',
                 ],
@@ -91,10 +91,10 @@ class Pea_Accordion extends Widget_Base {
         $this->add_control(
             'accordion_list',
             [
-                'label'       => __( 'Accordion Items', 'pea-for-elementor-addons' ),
-                'type'        => Controls_Manager::REPEATER,
-                'fields'      => $repeater->get_controls(),
-                'default'     => [
+                'label'           => __( 'Accordion Items', 'pea-for-elementor-addons' ),
+                'type'            => Controls_Manager::REPEATER,
+                'fields'          => $repeater->get_controls(),
+                'default'         => [
                     [
                         'title'   => __( 'Accordion 1', 'pea-for-elementor-addons' ),
                         'content' => __( 'Accordion content 1', 'pea-for-elementor-addons' ),
@@ -105,6 +105,226 @@ class Pea_Accordion extends Widget_Base {
                     ],
                 ],
                 'title_field' => '{{{ title }}}',
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // accordtion style
+        $this->start_controls_section(
+            'section_accordion',
+            [
+                'label' => __( 'Accordion', 'pea-for-elementor-addons' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        // Space Between Items
+        $this->add_responsive_control(
+            'accordion_item_gap',
+            [
+                'label'       => __( 'Space Between Items', 'pea-for-elementor-addons' ),
+                'type'        => Controls_Manager::SLIDER,
+                'size_units'  => [ 'px', 'em', 'rem', '%' ],
+                'range'       => [
+                    'px'      => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                    'em'      => [
+                        'min' => 0,
+                        'max' => 10,
+                    ],
+                    'rem'     => [
+                        'min' => 0,
+                        'max' => 10,
+                    ],
+                    '%'       => [
+                        'min' => 0,
+                        'max' => 50,
+                    ],
+                ],
+                'selectors'    => [
+                    '{{WRAPPER}} .pea-accordion-item' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Distance from Content Container
+        $this->add_responsive_control(
+            'accordion_content_distance',
+            [
+                'label'       => __( 'Distance from Content', 'pea-for-elementor-addons' ),
+                'type'        => Controls_Manager::SLIDER,
+                'size_units'  => [ 'px', 'em', 'rem', '%' ],
+                'range'       => [
+                    'px'      => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                    'em'      => [
+                        'min' => 0,
+                        'max' => 10,
+                    ],
+                    'rem'     => [
+                        'min' => 0,
+                        'max' => 10,
+                    ],
+                    '%'       => [
+                        'min' => 0,
+                        'max' => 50,
+                    ],
+                ],
+                'selectors'   => [
+                    '{{WRAPPER}} .pea-accordion-content-inner' => 'margin-top: {{SIZE}}{{UNIT}}; margin-bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs('style_tabs');
+
+        $this->start_controls_tab(
+            'accordtion_bg_normal_tab',
+            [
+                'label' => esc_html__( 'Normal', 'pea-for-elementor-addons' ),
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'accordtion_bg_normal',
+                'types'    => [ 'classic', 'gradient', 'video' ],
+                'selector' => '{{WRAPPER}} .pea-accordion-item',
+            ]
+        );
+
+        // Border
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'     => 'accordtion_border_normal',
+                'selector' => '{{WRAPPER}} .pea-accordion-item',
+            ]
+        );
+
+        // border color
+        $this->add_control(
+			'accordtion_border_color',
+			[
+				'label'     => esc_html__( 'Border Color', 'pea-for-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-accordion-item' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->end_controls_tab();// normal
+
+        $this->start_controls_tab(
+            'accordtion_bg_hover_tab',
+            [
+                'label' => esc_html__( 'Hover', 'pea-for-elementor-addons' ),
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'accordtion_bg_hover',
+                'types'    => [ 'classic', 'gradient', 'video' ],
+                'selector' => '{{WRAPPER}} .pea-accordion-item:hover',
+            ]
+        );
+
+        // Border
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'     => 'accordtion_border_hover',
+                'selector' => '{{WRAPPER}} .pea-accordion-item:hover',
+            ]
+        );
+
+        // border color
+        $this->add_control(
+			'accordtion_border_color_hover',
+			[
+				'label'     => esc_html__( 'Border Color', 'pea-for-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-accordion-item:hover' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->end_controls_tab();// hover
+
+         $this->start_controls_tab(
+            'accordtion_bg_active_tab',
+            [
+                'label' => esc_html__( 'Active', 'pea-for-elementor-addons' ),
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name'     => 'accordtion_bg_active',
+                'types'    => [ 'classic', 'gradient', 'video' ],
+                'selector' => '{{WRAPPER}} .pea-accordion-item.active',
+            ]
+        );
+
+        // Border
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name'     => 'accordtion_border_active',
+               'selector' => '{{WRAPPER}} .pea-accordion-item.active',
+            ]
+        );
+
+        // border color
+        $this->add_control(
+			'accordtion_border_color_active',
+			[
+				'label'     => esc_html__( 'Border Color', 'pea-for-elementor-addons' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .pea-accordion-item.active' => 'border-color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->end_controls_tab();// Active
+
+        $this->end_controls_tabs();
+
+        $this->add_responsive_control(
+            'accordion_item_border_radius',
+            [
+                'label'      => __( 'Border Radius', 'pea-for-elementor-addons' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
+                'separator'  => 'before',
+                'selectors'  => [
+                    '{{WRAPPER}} .pea-accordion-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // Padding
+        $this->add_responsive_control(
+            'accordion_item_padding',
+            [
+                'label'      => __( 'Padding', 'pea-for-elementor-addons' ),
+                'type'       => Controls_Manager::DIMENSIONS,
+                'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
+                'selectors'  => [
+                    '{{WRAPPER}} .pea-accordion-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
             ]
         );
 
@@ -219,22 +439,22 @@ class Pea_Accordion extends Widget_Base {
         $this->add_responsive_control(
 			'icon_size',
 			[
-				'label' => esc_html__( 'Icon Size', 'pea-for-elementor-addons' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'em', 'rem', 'custom', '%', 'vw' ],
-                'separator' => 'before',
-				'range' => [
-					'px' => [
+				'label'       => esc_html__( 'Icon Size', 'pea-for-elementor-addons' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', 'em', 'rem', 'custom', '%', 'vw' ],
+                'separator'   => 'before',
+				'range'       => [
+					'px'      => [
 						'max' => 100,
 					],
-					'em' => [
+					'em'      => [
 						'max' => 1,
 					],
-					'rem' => [
+					'rem'     => [
 						'max' => 1,
 					],
 				],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .pea-accordion-arrow-icon' => 'font-size: {{SIZE}}{{UNIT}};',
 				],
 			]
@@ -243,21 +463,21 @@ class Pea_Accordion extends Widget_Base {
         $this->add_responsive_control(
 			'icon_space',
 			[
-				'label' => esc_html__( 'Icon Spacing', 'pea-for-elementor-addons' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'em', 'rem', 'custom' ],
-				'range' => [
-					'px' => [
+				'label'       => esc_html__( 'Icon Spacing', 'pea-for-elementor-addons' ),
+				'type'        => Controls_Manager::SLIDER,
+				'size_units'  => [ 'px', 'em', 'rem', 'custom' ],
+				'range'       => [
+					'px'      => [
 						'max' => 100,
 					],
-					'em' => [
+					'em'      => [
 						'max' => 1,
 					],
-					'rem' => [
+					'rem'     => [
 						'max' => 1,
 					],
 				],
-				'selectors' => [
+				'selectors'   => [
 					'{{WRAPPER}} .pea-accordion-arrow-icon' => 'margin-inline-end: {{SIZE}}{{UNIT}};',
 				],
 			]
