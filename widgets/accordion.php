@@ -63,19 +63,6 @@ class Pea_Accordion extends Widget_Base {
             ]
         );
 
-        // Icon
-        $repeater->add_control(
-            'icon',
-            [
-                'label'       => __( 'Icon', 'pea-for-elementor-addons' ),
-                'type'        => Controls_Manager::ICONS,
-                'default'     => [
-                    'value'   => 'fas fa-chevron-right',
-                    'library' => 'fa-solid',
-                ],
-            ]
-        );
-
         // Content
         $repeater->add_control(
             'content',
@@ -107,6 +94,44 @@ class Pea_Accordion extends Widget_Base {
                 'title_field' => '{{{ title }}}',
             ]
         );
+
+        // select icon
+        $this->add_control(
+		  'accordtion_icon',
+			[
+				'label' => esc_html__( 'Icon', 'elementor' ),
+				'type' => Controls_Manager::ICONS,
+				'separator' => 'before',
+				'fa4compatibility' => 'icon',
+				'default' => [
+					'value' => 'fas fa-plus',
+					'library' => 'fa-solid',
+				],
+				
+				'skin' => 'inline',
+				'label_block' => false,
+			]
+		);
+
+        // title tag
+        $this->add_control(
+			'title_html_tag',
+			[
+				'label' => esc_html__( 'Title HTML Tag', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'h1' => 'H1',
+					'h2' => 'H2',
+					'h3' => 'H3',
+					'h4' => 'H4',
+					'h5' => 'H5',
+					'h6' => 'H6',
+					'div' => 'div',
+				],
+				'default' => 'div',
+				'separator' => 'before',
+			]
+		);
 
         $this->end_controls_section();
 
@@ -435,7 +460,9 @@ class Pea_Accordion extends Widget_Base {
 
         $this->end_controls_tab(); // End Active
 
-        // icon style
+        $this->end_controls_tabs();
+
+        // icon size
         $this->add_responsive_control(
 			'icon_size',
 			[
@@ -455,11 +482,12 @@ class Pea_Accordion extends Widget_Base {
 					],
 				],
 				'selectors'   => [
-					'{{WRAPPER}} .pea-accordion-arrow-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .pea-accordion-arrow-icon svg' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
 
+        // icon spacing
         $this->add_responsive_control(
 			'icon_space',
 			[
@@ -483,8 +511,6 @@ class Pea_Accordion extends Widget_Base {
 			]
 		);
 
-        $this->end_controls_tabs();
-
         // icon style tabs
         $this->start_controls_tabs( 'icon_style_tabs' );
 
@@ -494,6 +520,7 @@ class Pea_Accordion extends Widget_Base {
                 'label' =>__( 'Normal', 'pea-for-elementor-addons' ),
             ]
         );
+
 
         $this->add_control(
 			'icon_color_normal',
@@ -581,7 +608,11 @@ class Pea_Accordion extends Widget_Base {
 
         $this->end_controls_tab();// icon Actives
         $this->end_controls_tabs();
+
+
+
         $this->end_controls_section();
+
 
         // style for content
         $this->start_controls_section(
@@ -650,6 +681,8 @@ class Pea_Accordion extends Widget_Base {
         $settings        = $this->get_settings_for_display();
         $accordion_items = $settings['accordion_list'];
 
+        $icon = $settings['accordtion_icon'];
+
         if ( empty( $accordion_items ) ) {
             return;
         }
@@ -669,12 +702,10 @@ class Pea_Accordion extends Widget_Base {
                         <div class="pea-accordion-arrow">
                             <div class="pea-accordion-arrow-icon">
                                 <?php
-                                if ( ! empty( $item['icon'] ) ) {
                                     Icons_Manager::render_icon(
-                                        $item['icon'],
+                                        $icon,
                                         [ 'aria-hidden' => 'true' ]
                                     );
-                                }
                                 ?>
                             </div>
                         </div>

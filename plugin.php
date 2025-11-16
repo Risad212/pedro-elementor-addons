@@ -8,6 +8,7 @@ use PedroEA\Widgets\Pea_Button;
 use PedroEA\Widgets\Pea_Team;
 use PedroEA\Widgets\Pea_Accordion;
 
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -40,6 +41,7 @@ class Plugin {
 		$widgets_manager->register( new Pea_Button() );
 		$widgets_manager->register( new Pea_Team() );
 		$widgets_manager->register( new Pea_Accordion() );
+		
 	}
 
 	/**
