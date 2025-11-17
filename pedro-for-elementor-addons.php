@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Main Pedro Elementor Addon Class.
  */
-final class Pedro_Elementor_Addon {
+final class PedroEa_Main {
 
 	/**
 	 * Plugin version.
@@ -81,15 +81,15 @@ final class Pedro_Elementor_Addon {
 		$this->define_constants();
 
 		// Include main plugin file.
-		require_once PEA_PLUGIN_PATH . 'plugin.php';
+		require_once PEDROEA_PATH . 'plugin.php';
 	}
 
 	/**
 	 * Define plugin constants.
 	 */
 	private function define_constants() {
-		define( 'PEA_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
-		define( 'PEA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+		define( 'PEDROEA_URL', plugins_url( '/', __FILE__ ) );
+		define( 'PEDROEA_PATH', plugin_dir_path( __FILE__ ) );
 	}
 
 	/**
@@ -162,4 +162,4 @@ final class Pedro_Elementor_Addon {
 }
 
 // Instantiate the plugin.
-new Pedro_Elementor_Addon();
+new PedroEa_Main();

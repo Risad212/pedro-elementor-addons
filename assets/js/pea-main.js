@@ -1,7 +1,7 @@
 (function ($) {
   "use strict";
 
-  function pea_testimonial_slider($scope, $) {
+  function PedroEA_Testimonial_slider($scope, $) {
     // selector
     const slider =  $(".pea-testimonial-slider", $scope)[0];
     const next   =  $(".pea-button-next", $scope)[0];
@@ -33,8 +33,8 @@
 
   $(window).on("elementor/frontend/init", function () {
     elementorFrontend.hooks.addAction(
-      "frontend/element_ready/pea_testimonial.default",
-       pea_testimonial_slider
+      "frontend/element_ready/PedroEA_Testimonial.default",
+       PedroEA_Testimonial_slider
     );
   });
 

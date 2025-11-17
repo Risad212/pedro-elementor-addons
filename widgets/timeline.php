@@ -19,10 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-class Pea_Timeline extends Widget_Base {
+class PedroEA_Timeline extends Widget_Base {
 
 	public function get_name(){
-		return 'pea_timeline';
+		return 'pedroea_timeline';
 	}
 
 	public function get_title(): string {
@@ -34,7 +34,7 @@ class Pea_Timeline extends Widget_Base {
 	}
 
 	public function get_categories(): array {
-		return [ 'pedro' ];
+		return [ 'pedroea' ];
 	}
 
 	public function get_keywords(): array {

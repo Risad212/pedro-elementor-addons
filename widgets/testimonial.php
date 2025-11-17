@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Pea_Testimonial extends Widget_Base {
+class PedroEA_Testimonial extends Widget_Base {
 
     public function get_name() {
-        return 'pea_testimonial';
+        return 'pedroea_testimonial';
     }
 
     public function get_title(): string {
@@ -29,7 +29,7 @@ class Pea_Testimonial extends Widget_Base {
     }
 
     public function get_categories(): array {
-        return [ 'pedro' ];
+        return [ 'pedroea' ];
     }
 
     public function get_keywords(): array {
