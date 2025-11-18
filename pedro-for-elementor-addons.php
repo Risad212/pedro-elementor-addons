@@ -81,7 +81,8 @@ final class Pedro_Elementor_Addon {
 		$this->define_constants();
 
 		// Include main plugin file.
-		require_once PEA_PLUGIN_PATH . 'plugin.php';
+		require_once PEA_PLUGIN_PATH. 'plugin.php';
+		
 	}
 
 	/**

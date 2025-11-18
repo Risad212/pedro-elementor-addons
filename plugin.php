@@ -81,12 +81,11 @@ class Plugin {
 		wp_enqueue_style( 'pea-editor-css', PEA_PLUGIN_URL . 'assets/css/pea-editor.css', [], '1.0.0','all');
 	}
 
-
+	
 	/**
 	 * Plugin Constructor
 	 */
 	public function __construct() {
-
 		// Register widgets
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
@@ -101,7 +100,6 @@ class Plugin {
 
 		// Enqueue editor styles
 		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
-
 	}
 }
 
