@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class PeadroEa_Plugin {
+class PedroEA_Plugin {
 	
      /**
      * store instance of plugin
@@ -76,11 +76,12 @@ class PeadroEa_Plugin {
      * @access public
      */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'pedroea-swiper-css', PEDROEA_URL . 'assets/css/pea-swiper-bundle.min.css', [], '1.0.0', 'all' );
-		wp_enqueue_style( 'pedroea-main-css',   PEDROEA_URL . 'assets/css/pea-main.css', [], '1.0.0', 'all' );
+		
+		wp_enqueue_style( 'pedroea-swiper-css', PEDROEA_URL . 'assets/css/pedroea-swiper-bundle.min.css', [], '1.0.0', 'all' );
+		wp_enqueue_style( 'pedroea-main-css',   PEDROEA_URL . 'assets/css/pedroea-main.css', [], '1.0.0', 'all' );
 
-		wp_enqueue_script( 'pedroea-swiper-js', PEDROEA_URL . 'assets/js/pea-swiper-bundle.min.js', [ 'jquery' ], '1.0.0', true );
-		wp_enqueue_script( 'pedroea-main-js',   PEDROEA_URL . 'assets/js/pea-main.js', ['jquery'], '1.0.0', true );
+		wp_enqueue_script( 'pedroea-swiper-js', PEDROEA_URL . 'assets/js/pedroea-swiper-bundle.min.js', [ 'jquery' ], '1.0.0', true );
+		wp_enqueue_script( 'pedroea-main-js',   PEDROEA_URL . 'assets/js/pedroea-main.js', ['jquery'], '1.0.0', true );
 
 	}
 
@@ -103,7 +104,7 @@ class PeadroEa_Plugin {
 	 * @access public 
 	 */
 	public function enqueue_editor_styles() {
-      wp_enqueue_style( 'pedroea-editor-css', PEDROEA_URL . 'assets/css/pea-editor.css', [], '1.0.0','all');
+      wp_enqueue_style( 'pedroea-editor-css', PEDROEA_URL . 'assets/css/pedroea-editor.css', [], '1.0.0','all');
     }
 
 
@@ -133,4 +134,4 @@ class PeadroEa_Plugin {
 	}
 }
 
-PeadroEa_Plugin::instance();
+PedroEA_Plugin::instance();

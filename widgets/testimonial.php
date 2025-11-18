@@ -11,7 +11,7 @@ use \Elementor\Icons_Manager;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+    exit;
 }
 
 class PedroEA_Testimonial extends Widget_Base {
@@ -47,74 +47,68 @@ class PedroEA_Testimonial extends Widget_Base {
             ]
         );
 
+        // Repeater for testimonials
         $this->add_control(
             'testimonial_list',
             [
-                'label'               => esc_html__( 'Testimonial', 'pedro-for-elementor-addons' ),
-                'type'                => Controls_Manager::REPEATER,
-                'fields'              => [
+                'label'   => __( 'Testimonial', 'pedro-for-elementor-addons' ),
+                'type'    => Controls_Manager::REPEATER,
+                'fields'  => [
                     [
-                        'name'        => 'discription',
-                        'label'       => esc_html__( 'Discription', 'pedro-for-elementor-addons' ),
+                        'name'        => 'description',
+                        'label'       => __( 'Description', 'pedro-for-elementor-addons' ),
                         'type'        => Controls_Manager::TEXTAREA,
-                        'default'     => esc_html__( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s', 'pedro-for-elementor-addons' ),
+                        'default'     => __( 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'pedro-for-elementor-addons' ),
                         'label_block' => true,
                     ],
                     [
                         'name'        => 'image',
-                        'label'       => esc_html__( 'Image', 'pedro-for-elementor-addons' ),
+                        'label'       => __( 'Image', 'pedro-for-elementor-addons' ),
                         'type'        => Controls_Manager::MEDIA,
                         'default'     => [
-                            'url'     => Utils::get_placeholder_image_src(),
+                            'url' => Utils::get_placeholder_image_src(),
                         ],
                         'label_block' => true,
                     ],
                     [
                         'name'        => 'name',
-                        'label'       => esc_html__( 'Name', 'pedro-for-elementor-addons' ),
+                        'label'       => __( 'Name', 'pedro-for-elementor-addons' ),
                         'type'        => Controls_Manager::TEXT,
-                        'default'     => esc_html__( 'Ema Watson', 'pedro-for-elementor-addons' ),
+                        'default'     => __( 'Ema Watson', 'pedro-for-elementor-addons' ),
                         'label_block' => true,
                     ],
                     [
                         'name'        => 'designation',
-                        'label'       => esc_html__( 'Designation', 'pedro-for-elementor-addons' ),
+                        'label'       => __( 'Designation', 'pedro-for-elementor-addons' ),
                         'type'        => Controls_Manager::TEXT,
-                        'default'     => esc_html__( 'Founder', 'pedro-for-elementor-addons' ),
+                        'default'     => __( 'Founder', 'pedro-for-elementor-addons' ),
                         'label_block' => true,
                     ],
                 ],
-                'default'              => [
+                'default' => [
                     [
-                        'list_title'   => esc_html__( 'Testimonial Item', 'pedro-for-elementor-addons' ),
-                        'list_content' => esc_html__( 'Review text', 'pedro-for-elementor-addons' ),
+                        'name'        => __( 'Ema Watson', 'pedro-for-elementor-addons' ),
+                        'designation' => __( 'Founder', 'pedro-for-elementor-addons' ),
+                        'description' => __( 'Great service and support.', 'pedro-for-elementor-addons' ),
                     ],
                     [
-                        'list_title'   => esc_html__( 'Testimonial Item', 'pedro-for-elementor-addons' ),
-                        'list_content' => esc_html__( 'Review text', 'pedro-for-elementor-addons' ),
-                    ],
-                    [
-                        'list_title'   => esc_html__( 'Testimonial Item', 'pedro-for-elementor-addons' ),
-                        'list_content' => esc_html__( 'Review text', 'pedro-for-elementor-addons' ),
-                    ],
-                    [
-                        'list_title'   => esc_html__( 'Testimonial Item', 'pedro-for-elementor-addons' ),
-                        'list_content' => esc_html__( 'Review text', 'pedro-for-elementor-addons' ),
+                        'name'        => __( 'John Doe', 'pedro-for-elementor-addons' ),
+                        'designation' => __( 'CEO', 'pedro-for-elementor-addons' ),
+                        'description' => __( 'Highly recommend this company.', 'pedro-for-elementor-addons' ),
                     ],
                 ],
-                        'title_field'  => '{{{ list_title }}}'
+                'title_field' => '{{{ name }}}',
             ]
         );
 
-
+        // Arrow Icons
         $this->add_control(
             'arrow_prev_icon',
             [
-                'label'       => __( 'Previous Icon', 'pedro-for-elementor-addons' ),
-                'label_block' => false,
-                'type'        => Controls_Manager::ICONS,
-                'skin'        => 'inline',
-                'default'     => [
+                'label'   => __( 'Previous Icon', 'pedro-for-elementor-addons' ),
+                'type'    => Controls_Manager::ICONS,
+                'skin'    => 'inline',
+                'default' => [
                     'value'   => 'fas fa-chevron-left',
                     'library' => 'fa-solid',
                 ],
@@ -124,274 +118,43 @@ class PedroEA_Testimonial extends Widget_Base {
         $this->add_control(
             'arrow_next_icon',
             [
-                'label'       => __( 'Next Icon', 'pedro-for-elementor-addons' ),
-                'label_block' => false,
-                'type'        => Controls_Manager::ICONS,
-                'skin'        => 'inline',
-                'separator'   => 'after',
-                'default'     => [
+                'label'   => __( 'Next Icon', 'pedro-for-elementor-addons' ),
+                'type'    => Controls_Manager::ICONS,
+                'skin'    => 'inline',
+                'separator' => 'after',
+                'default' => [
                     'value'   => 'fas fa-chevron-right',
                     'library' => 'fa-solid',
                 ],
             ]
         );
 
-        $this->add_control(
-            'image_switch',
-            [
-                'label'        => esc_html__( 'Image', 'pedro-for-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
-                'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-            ]
-        );
+        // Switches
+        $switches = [
+            'image_switch'       => 'Image',
+            'name_switch'        => 'Name',
+            'designation_switch' => 'Designation',
+            'description_switch' => 'Description',
+            'pagination_switch'  => 'Pagination',
+            'navigation_switch'  => 'Navigation',
+        ];
 
-        $this->add_control(
-            'name_switch',
-            [
-                'label'        => esc_html__( 'Name', 'pedro-for-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
-                'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'designation_switch',
-            [
-                'label'        => esc_html__( 'Designation', 'pedro-for-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
-                'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'discription_switch',
-            [
-                'label'        => esc_html__( 'Designation', 'pedro-for-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
-                'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'pagination_switch',
-            [
-                'label'        => esc_html__( 'Pagination', 'pedro-for-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
-                'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-            ]
-        );
-
-        $this->add_control(
-            'navigation_switch',
-            [
-                'label'        => esc_html__( 'Navigation', 'pedro-for-elementor-addons' ),
-                'type'         => Controls_Manager::SWITCHER,
-                'label_on'     => esc_html__( 'Show', 'pedro-for-elementor-addons' ),
-                'label_off'    => esc_html__( 'Hide', 'pedro-for-elementor-addons' ),
-                'return_value' => 'yes',
-                'default'      => 'yes',
-            ]
-        );
+        foreach ( $switches as $key => $label ) {
+            $this->add_control(
+                $key,
+                [
+                    'label'        => esc_html( $label ),
+                    'type'         => Controls_Manager::SWITCHER,
+                    'label_on'     => __( 'Show', 'pedro-for-elementor-addons' ),
+                    'label_off'    => __( 'Hide', 'pedro-for-elementor-addons' ),
+                    'return_value' => 'yes',
+                    'default'      => 'yes',
+                ]
+            );
+        }
 
         $this->end_controls_section();
-
-        // Style content
-        $this->start_controls_section(
-            'style_content',
-            [
-                'label' => esc_html__( 'Discription', 'pedro-for-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'discription_color',
-            [
-                'label'     => esc_html__( 'Text Color', 'pedro-for-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pea-testimonial-text' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'content_typography',
-                'selector' => '{{WRAPPER}} .pea-testimonial-text',
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Text_Shadow::get_type(),
-            [
-                'name'     => 'text_shadow',
-                'selector' => '{{WRAPPER}} .pea-testimonial-text',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Image
-        $this->start_controls_section(
-            'style_image',
-            [
-                'label'      => esc_html__( 'Image', 'pedro-for-elementor-addons' ),
-                'tab'        => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'image_width',
-            [
-                'label'      => esc_html__( 'Width', 'pedro-for-elementor-addons' ),
-                'type'       => Controls_Manager::SLIDER,
-                'size_units' => [ 'px', '%', 'em', 'rem', 'vw', 'custom' ],
-                'range'      => [
-                    'px'     => [ 'min' => 20, 'max' => 200 ],
-                ],
-                'default'    => [
-                    'unit'   => 'px',
-                    'size'   => 50,
-                ],
-                'selectors'  => [
-                    '{{WRAPPER}} .pea-avatar' => 'width: {{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Name
-        $this->start_controls_section(
-            'style_name',
-            [
-                'label'      => esc_html__( 'Name', 'pedro-for-elementor-addons' ),
-                'tab'        => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'name_color',
-            [
-                'label'     => esc_html__( 'Text Color', 'pedro-for-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pea-meta-name' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'name_typography',
-                'selector' => '{{WRAPPER}} .pea-meta-name',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Designation
-        $this->start_controls_section(
-            'designation_section',
-            [
-                'label' => esc_html__( 'Designation', 'pedro-for-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'designation_color',
-            [
-                'label'     => esc_html__( 'Text Color', 'pedro-for-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pea-meta-designation' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            Group_Control_Typography::get_type(),
-            [
-                'name'     => 'designation_typography',
-                'selector' => '{{WRAPPER}} .pea-meta-designation',
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Pagination
-        $this->start_controls_section(
-            'pagination_section',
-            [
-                'label' => esc_html__( 'Pagination', 'pedro-for-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'pagination_color',
-            [
-                'label'     => esc_html__( 'Color', 'pedro-for-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pea-swiper-pagination .swiper-pagination-bullet' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Navigation
-        $this->start_controls_section(
-            'navigation_section',
-            [
-                'label' => esc_html__( 'Navigation', 'pedro-for-elementor-addons' ),
-                'tab'   => Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'nav_bg',
-            [
-                'label'     => esc_html__( 'Background Color', 'pedro-for-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pea-button-prev, {{WRAPPER}} .pea-button-next' => 'background-color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'nav_icon_color',
-            [
-                'label'     => esc_html__( 'Icon Color', 'pedro-for-elementor-addons' ),
-                'type'      => Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .pea-nav-icon i' => 'color: {{VALUE}}',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
+        
     }
 
     protected function render(): void {
@@ -405,9 +168,9 @@ class PedroEA_Testimonial extends Widget_Base {
                         <div class="swiper-slide">
                             <div class="pea-testimonial-card">
 
-                                <?php if ( ! empty( $settings['discription_switch'] ) ) : ?>
+                                <?php if ( ! empty( $settings['description_switch'] ) ) : ?>
                                     <p class="pea-testimonial-text">
-                                        <?php echo esc_html( $item['discription'] ); ?>
+                                        <?php echo esc_html( $item['description'] ); ?>
                                     </p>
                                 <?php endif; ?>
 
