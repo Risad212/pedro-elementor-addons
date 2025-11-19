@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Pedro For Elementor Addons
+ * Plugin Name:       Pedro Addons for Elementor
  * Plugin URI: 
  * Description:       Elementor Addon For The Elementor Themes.
  * Version:           1.0.0
@@ -21,11 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 /**
- * Main Pedro Elementor Addon Class.
+ * Main Pedro For Elementor Addon Class.
  */
-final class PedroEa_Main {
+final class Pedro_Elementor_Addon {
 
 	/**
 	 * Plugin version.
@@ -82,15 +81,16 @@ final class PedroEa_Main {
 		$this->define_constants();
 
 		// Include main plugin file.
-		require_once PEDROEA_PATH . 'plugin.php';
+		require_once PEA_PLUGIN_PATH. 'plugin.php';
+		
 	}
 
 	/**
 	 * Define plugin constants.
 	 */
 	private function define_constants() {
-		define( 'PEDROEA_URL', plugins_url( '/', __FILE__ ) );
-		define( 'PEDROEA_PATH', plugin_dir_path( __FILE__ ) );
+		define( 'PEA_PLUGIN_URL', plugins_url( '/', __FILE__ ) );
+		define( 'PEA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 	}
 
 	/**
@@ -163,4 +163,4 @@ final class PedroEa_Main {
 }
 
 // Instantiate the plugin.
-new PedroEa_Main();
+new Pedro_Elementor_Addon();

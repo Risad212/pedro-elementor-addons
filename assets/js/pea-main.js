@@ -31,11 +31,59 @@
     }
   }
 
+  // accordtion js code
+  function pea_accordion($scope, $) {
+    const accordionTriggers = $scope[0].querySelectorAll('.pea-accordion-trigger');
+
+    accordionTriggers.forEach(trigger => {
+      trigger.addEventListener('click', function () {
+        const accordionItem = this.parentElement;
+        const isActive = accordionItem.classList.contains('active');
+
+        $scope[0].querySelectorAll('.pea-accordion-item').forEach(item => {
+          item.classList.remove('active');
+        });
+
+        if (!isActive) {
+          accordionItem.classList.add('active');
+        }
+      });
+    });
+  }
+
   $(window).on("elementor/frontend/init", function () {
+
+    // testimonial
     elementorFrontend.hooks.addAction(
       "frontend/element_ready/PedroEA_Testimonial.default",
        PedroEA_Testimonial_slider
     );
+ 
+    // accordion 
+    elementorFrontend.hooks.addAction(
+      "frontend/element_ready/pea_accordion.default",
+       pea_accordion
+    );
   });
 
 })(jQuery);
+
+
+// const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+
+// accordionTriggers.forEach(trigger => {
+//     trigger.addEventListener('click', function () {
+//         const accordionItem = this.parentElement;
+//         const isActive = accordionItem.classList.contains('active');
+
+//         // Close all accordion items
+//         document.querySelectorAll('.accordion-item').forEach(item => {
+//             item.classList.remove('active');
+//         });
+
+//         // Open clicked item if it wasn't active
+//         if (!isActive) {
+//             accordionItem.classList.add('active');
+//         }
+//     });
+// });

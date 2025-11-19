@@ -1,4 +1,4 @@
-=== Pedro For Elementor Addons ===
+=== Pedro Elementor Addon ===
 
 Contributors: hmrisad
 Tags: pedro, elementor, addon, widgets
