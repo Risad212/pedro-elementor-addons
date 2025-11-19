@@ -94,4 +94,4 @@ class PedroEA_Plugin {
 	}
 }
 
-Plugin::instance();
+PedroEA_Plugin::instance();
