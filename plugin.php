@@ -3,6 +3,9 @@ namespace PedroEA;
 
 use PedroEA\Widgets\PedroEA_Testimonial;
 use PedroEA\Widgets\PedroEA_Timeline;
+use PedroEA\Widgets\PedroEA_Button;
+use PedroEA\Widgets\PedroEA_Team;
+use PedroEA\Widgets\PedroEA_Accordion;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -46,10 +49,15 @@ class PedroEA_Plugin {
 
 		require_once PEDROEA_PATH . 'widgets/testimonial.php';
 		require_once PEDROEA_PATH . 'widgets/timeline.php';
+		require_once PEDROEA_PATH . 'widgets/team.php';
+        require_once PEDROEA_PATH . 'widgets/button.php';
+        require_once PEDROEA_PATH . 'widgets/accordion.php';
 
 		$widgets_manager->register( new PedroEA_Testimonial() );
 		$widgets_manager->register( new PedroEA_Timeline() );
-
+		$widgets_manager->register( new PedroEA_Accordion() );
+        $widgets_manager->register( new PedroEA_Button() );
+		$widgets_manager->register( new PedroEA_Team() );
 	}
 
 	 /**
