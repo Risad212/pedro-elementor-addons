@@ -67,7 +67,6 @@ class PedroEA_Team extends Widget_Base {
 			Group_Control_Image_Size::get_type(),
 			[
 				'name'    => 'thumbnail', 
-				'exclude' => [ 'custom' ],
 				'default' => 'large',
 			]
 		);
@@ -740,21 +739,25 @@ class PedroEA_Team extends Widget_Base {
     ?>
     <div class="pea-team-card">
         <div class="pea-card-img">
-            <img <?php echo $this->get_render_attribute_string( 'team_image_attr' ); ?>>
+            <img <?php echo wp_kses_post( $this->get_render_attribute_string( 'team_image_attr' ) ); ?>>
             <div class="pea-social-media">
-				<?php 
-				if ( $settings['show_social_profile'] ) : ?>
+				<?php if ( $settings['show_social_profile'] ) : ?>
 					<ul class="pea-social-media">
 						<?php foreach ( $settings['social_list'] as $item ) : 
 							$icon = ! empty( $item['social_icon'] ) ? $item['social_icon'] : ['value' => 'fa fa-facebook'];
 							$link = ! empty( $item['social_link']['url'] ) ? $item['social_link']['url'] : '#';
 						?>
-							<li <?php echo $this->get_render_attribute_string( 'social_item_attr' ); ?>>
-								<a href="<?php echo esc_url( $link ); ?>">
-								   <?php if ( ! empty( $icon ) ) {
-									   Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] ); 
-									}?>
-								</a>
+							<li <?php echo wp_kses_post( $this->get_render_attribute_string( 'social_item_attr' ) ); ?>>
+								<?php if ( ! empty( $link ) ) : ?>
+									<a href="<?php echo esc_url( $link ); ?>">
+										<?php 
+										if ( ! empty( $icon ) ) {
+											
+											echo wp_kses_post( Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] ) ); 
+										}
+										?>
+									</a>
+							<?php endif; ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>

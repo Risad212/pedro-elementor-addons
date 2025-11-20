@@ -211,7 +211,7 @@ class PedroEA_Button extends Widget_Base {
        $this->add_control(
            'button_hover_transition_duration',
            [
-               'label'      => esc_html__( 'Transition Duration', 'elementor' ),
+               'label'      => esc_html__( 'Transition Duration', 'pedro-for-elementor-addons' ),
                'type'       => Controls_Manager::SLIDER,
                'size_units' => [ 's', 'ms', 'custom' ],
                'default'    => [
@@ -282,11 +282,12 @@ class PedroEA_Button extends Widget_Base {
        }
        ?>
 
-       <a <?php echo $this->get_render_attribute_string('button') ?> > 
-           <span <?php echo $this->get_render_attribute_string('button_blend') ?> >
-              <?php echo esc_html( $settings['button_text'] ); ?>
-          </span>
-       </a>
+        <a <?php echo wp_kses_post( $this->get_render_attribute_string( 'button' ) ); ?>>
+            <span <?php echo wp_kses_post( $this->get_render_attribute_string( 'button_blend' ) ); ?>>
+                <?php echo esc_html( $settings['button_text'] ); ?>
+            </span>
+        </a>
+
 
        <?php
    }

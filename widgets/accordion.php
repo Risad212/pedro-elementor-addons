@@ -56,9 +56,9 @@ class PedroEA_Accordion extends Widget_Base {
         $repeater->add_control(
             'title',
             [
-                'label'       => __( 'Title', 'pea-for-elementor-addons' ),
+                'label'       => __( 'Title', 'pedro-for-elementor-addons' ),
                 'type'        => Controls_Manager::TEXT,
-                'default'     => __( 'Title', 'pea-for-elementor-addons' ),
+                'default'     => __( 'Title', 'pedro-for-elementor-addons' ),
                 'label_block' => true,
             ]
         );
@@ -67,9 +67,9 @@ class PedroEA_Accordion extends Widget_Base {
         $repeater->add_control(
             'content',
             [
-                'label'      => __( 'Content', 'pea-for-elementor-addons' ),
+                'label'      => __( 'Content', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::TEXTAREA,
-                'default'    => __( 'Accordion content goes here...', 'pea-for-elementor-addons' ),
+                'default'    => __( 'Accordion content goes here...', 'pedro-for-elementor-addons' ),
                 'show_label' => true,
             ]
         );
@@ -78,17 +78,17 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
             'accordion_list',
             [
-                'label'           => __( 'Accordion Items', 'pea-for-elementor-addons' ),
+                'label'           => __( 'Accordion Items', 'pedro-for-elementor-addons' ),
                 'type'            => Controls_Manager::REPEATER,
                 'fields'          => $repeater->get_controls(),
                 'default'         => [
                     [
-                        'title'   => __( 'Accordion 1', 'pea-for-elementor-addons' ),
-                        'content' => __( 'Accordion content 1', 'pea-for-elementor-addons' ),
+                        'title'   => __( 'Accordion 1', 'pedro-for-elementor-addons' ),
+                        'content' => __( 'Accordion content 1', 'pedro-for-elementor-addons' ),
                     ],
                     [
-                        'title'   => __( 'Accordion 2', 'pea-for-elementor-addons' ),
-                        'content' => __( 'Accordion content 2', 'pea-for-elementor-addons' ),
+                        'title'   => __( 'Accordion 2', 'pedro-for-elementor-addons' ),
+                        'content' => __( 'Accordion content 2', 'pedro-for-elementor-addons' ),
                     ],
                 ],
                 'title_field' => '{{{ title }}}',
@@ -99,8 +99,8 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
 		  'accordtion_icon',
 			[
-				'label' => esc_html__( 'Icon', 'elementor' ),
-				'type' => Controls_Manager::ICONS,
+				'label' => __( 'Icon', 'pedro-for-elementor-addons' ),
+				'type'      => Controls_Manager::ICONS,
 				'separator' => 'before',
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -117,7 +117,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
 			'title_html_tag',
 			[
-				'label' => esc_html__( 'Title HTML Tag', 'elementor' ),
+				'label' => __( 'Title HTML Tag', 'pedro-for-elementor-addons' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'h1' => 'H1',
@@ -139,7 +139,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_section(
             'section_accordion',
             [
-                'label' => __( 'Accordion', 'pea-for-elementor-addons' ),
+                'label' => __( 'Accordion', 'pedro-for-elementor-addons' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -148,7 +148,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'accordion_item_gap',
             [
-                'label'       => __( 'Space Between Items', 'pea-for-elementor-addons' ),
+                'label'       => __( 'Space Between Items', 'pedro-for-elementor-addons' ),
                 'type'        => Controls_Manager::SLIDER,
                 'size_units'  => [ 'px', 'em', 'rem', '%' ],
                 'range'       => [
@@ -179,7 +179,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'accordion_content_distance',
             [
-                'label'       => __( 'Distance from Content', 'pea-for-elementor-addons' ),
+                'label'       => __( 'Distance from Content', 'pedro-for-elementor-addons' ),
                 'type'        => Controls_Manager::SLIDER,
                 'size_units'  => [ 'px', 'em', 'rem', '%' ],
                 'range'       => [
@@ -211,7 +211,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'accordtion_bg_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'pea-for-elementor-addons' ),
+                'label' => __( 'Normal', 'pedro-for-elementor-addons' ),
             ]
         );
 
@@ -237,7 +237,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
 			'accordtion_border_color',
 			[
-				'label'     => esc_html__( 'Border Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Border Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-item' => 'border-color: {{VALUE}}',
@@ -250,7 +250,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'accordtion_bg_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'pea-for-elementor-addons' ),
+                'label' => __( 'Hover', 'pedro-for-elementor-addons' ),
             ]
         );
 
@@ -276,7 +276,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
 			'accordtion_border_color_hover',
 			[
-				'label'     => esc_html__( 'Border Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Border Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-item:hover' => 'border-color: {{VALUE}}',
@@ -289,7 +289,7 @@ class PedroEA_Accordion extends Widget_Base {
          $this->start_controls_tab(
             'accordtion_bg_active_tab',
             [
-                'label' => esc_html__( 'Active', 'pea-for-elementor-addons' ),
+                'label' => __( 'Active', 'pedro-for-elementor-addons' ),
             ]
         );
 
@@ -315,7 +315,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
 			'accordtion_border_color_active',
 			[
-				'label'     => esc_html__( 'Border Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Border Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-item.active' => 'border-color: {{VALUE}}',
@@ -330,7 +330,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'accordion_item_border_radius',
             [
-                'label'      => __( 'Border Radius', 'pea-for-elementor-addons' ),
+                'label'      => __( 'Border Radius', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
                 'separator'  => 'before',
@@ -344,7 +344,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'accordion_item_padding',
             [
-                'label'      => __( 'Padding', 'pea-for-elementor-addons' ),
+                'label'      => __( 'Padding', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em', 'rem', 'vw' ],
                 'selectors'  => [
@@ -359,7 +359,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_section(
             'section_title_style',
             [
-                'label' => __( 'Title', 'pea-for-elementor-addons' ),
+                'label' => __( 'Title', 'pedro-for-elementor-addons' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -378,13 +378,13 @@ class PedroEA_Accordion extends Widget_Base {
         // Normal
         $this->start_controls_tab(
             'tab_title_normal',
-            [ 'label' => __( 'Normal', 'pea-for-elementor-addons' ) ]
+            [ 'label' => __( 'Normal', 'pedro-for-elementor-addons' ) ]
         );
 
         $this->add_control(
             'title_color',
             [
-                'label'     => __( 'Color', 'pea-for-elementor-addons' ),
+                'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pea-accordion-title' => 'color: {{VALUE}};',
@@ -406,13 +406,13 @@ class PedroEA_Accordion extends Widget_Base {
         // hover
         $this->start_controls_tab(
             'tab_title_hover',
-            [ 'label' => __( 'hover', 'pea-for-elementor-addons' ) ]
+            [ 'label' => __( 'hover', 'pedro-for-elementor-addons' ) ]
         );
 
         $this->add_control(
             'title_color_hover',
             [
-                'label'     => __( 'Color', 'pea-for-elementor-addons' ),
+                'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pea-accordion-title:hover' => 'color: {{VALUE}};',
@@ -435,13 +435,13 @@ class PedroEA_Accordion extends Widget_Base {
         // active
         $this->start_controls_tab(
             'tab_title_active',
-            [ 'label' => __( 'Active', 'pea-for-elementor-addons' ) ]
+            [ 'label' => __( 'Active', 'pedro-for-elementor-addons' ) ]
         );
 
         $this->add_control(
             'title_color_active',
             [
-                'label'     => __( 'Color', 'pea-for-elementor-addons' ),
+                'label'     => __( 'Color', 'pedro-for-elementor-addons' ),
                 'type'      => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .pea-accordion-item.active .pea-accordion-title' => 'color: {{VALUE}};',
@@ -466,7 +466,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
 			'icon_size',
 			[
-				'label'       => esc_html__( 'Icon Size', 'pea-for-elementor-addons' ),
+				'label'       => __( 'Icon Size', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px', 'em', 'rem', 'custom', '%', 'vw' ],
                 'separator'   => 'before',
@@ -491,7 +491,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
 			'icon_space',
 			[
-				'label'       => esc_html__( 'Icon Spacing', 'pea-for-elementor-addons' ),
+				'label'       => __( 'Icon Spacing', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::SLIDER,
 				'size_units'  => [ 'px', 'em', 'rem', 'custom' ],
 				'range'       => [
@@ -517,7 +517,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'icon_color_tab',
             [
-                'label' =>__( 'Normal', 'pea-for-elementor-addons' ),
+                'label' =>__( 'Normal', 'pedro-for-elementor-addons' ),
             ]
         );
 
@@ -525,7 +525,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_control(
 			'icon_color_normal',
 			[
-				'label'     => __( 'Icon Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Icon Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-arrow-icon svg' => 'fill: {{VALUE}}',
@@ -536,7 +536,7 @@ class PedroEA_Accordion extends Widget_Base {
          $this->add_control(
 			'icon_color_bg_normal',
 			[
-				'label'     => __( 'Background Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-arrow' => 'background: {{VALUE}}',
@@ -549,14 +549,14 @@ class PedroEA_Accordion extends Widget_Base {
          $this->start_controls_tab(
             'icon_hover_color_tab',
             [
-                'label' => __( 'Hover', 'pea-for-elementor-addons' ),
+                'label' => __( 'Hover', 'pedro-for-elementor-addons' ),
             ]
         );
 
         $this->add_control(
 			'icon_color_hover',
 			[
-				'label'     => __( 'Icon Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Icon Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-arrow-icon:hover svg' => 'fill: {{VALUE}}',
@@ -567,7 +567,7 @@ class PedroEA_Accordion extends Widget_Base {
          $this->add_control(
 			'icon_color_bg_hover',
 			[
-				'label'     => __( 'Background Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-arrow:hover' => 'background: {{VALUE}}',
@@ -580,14 +580,14 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_tab(
             'icon_active_color_tab',
             [
-                'label' => __( 'Active', 'pea-for-elementor-addons' ),
+                'label' => __( 'Active', 'pedro-for-elementor-addons' ),
             ]
         );
 
         $this->add_control(
 			'icon_color_active',
 			[
-				'label'     => __( 'Icon Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Icon Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .pea-accordion-item.active .pea-accordion-arrow-icon' => 'color: {{VALUE}}',
@@ -598,7 +598,7 @@ class PedroEA_Accordion extends Widget_Base {
          $this->add_control(
 			'icon_color_bg_active',
 			[
-				'label'     => __( 'Background Color', 'pea-for-elementor-addons' ),
+				'label'     => __( 'Background Color', 'pedro-for-elementor-addons' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
                     '{{WRAPPER}} .pea-accordion-item.active .pea-accordion-arrow' => 'background: {{VALUE}}',
@@ -618,7 +618,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->start_controls_section(
             'section_content_style',
             [
-                'label' => __( 'Content', 'pea-for-elementor-addons' ),
+                'label' => __( 'Content', 'pedro-for-elementor-addons' ),
                 'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -628,7 +628,7 @@ class PedroEA_Accordion extends Widget_Base {
            Group_Control_Background::get_type(),
             [
                 'name'     => 'content_background',
-                'label'    => __( 'Background', 'pea-for-elementor-addons' ),
+                'label'    => __( 'Background', 'pedro-for-elementor-addons' ),
                 'types'    => [ 'classic', 'gradient', 'video' ],
                 'selector' => '{{WRAPPER}} .pea-accordion-content',
             ]
@@ -639,7 +639,7 @@ class PedroEA_Accordion extends Widget_Base {
             Group_Control_Border::get_type(),
             [
                 'name'        => 'content_border',   
-                'label'       => __( 'Border', 'pea-for-elementor-addons' ),
+                'label'       => __( 'Border', 'pedro-for-elementor-addons' ),
                 'placeholder' => '1px',
                 'default'     => 'solid',
                 'selector'    => '{{WRAPPER}} .pea-accordion-content-inner',
@@ -650,7 +650,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'content_border_radius',
             [
-                'label'      => __( 'Border Radius', 'pea-for-elementor-addons' ),
+                'label'      => __( 'Border Radius', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
                 'selectors'  => [
@@ -663,7 +663,7 @@ class PedroEA_Accordion extends Widget_Base {
         $this->add_responsive_control(
             'content_padding',
             [
-                'label'      => __( 'Padding', 'pea-for-elementor-addons' ),
+                'label'      => __( 'Padding', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
                 'selectors'  => [
