@@ -1,20 +1,12 @@
 <?php
 namespace PedroEA;
 
-use Elementor\Icons_Manager;
-use PedroEA\Widgets\Pea_Testimonial;
-use PedroEA\Widgets\Pea_Timeline;
-use PedroEA\Widgets\Pea_Button;
-use PedroEA\Widgets\Pea_Team;
-use PedroEA\Widgets\Pea_Accordion;
-
-
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Plugin {
+class PedroEA_Plugin {
 	
 	private static $_instance = null;
 
@@ -29,19 +21,16 @@ class Plugin {
 	 * Register Widgets
 	 */
 	public function register_widgets( $widgets_manager ) {
-		
+
 		require_once PEA_PLUGIN_PATH . 'widgets/testimonial.php';
 		require_once PEA_PLUGIN_PATH . 'widgets/timeline.php';
-		require_once PEA_PLUGIN_PATH . 'widgets/button.php';
-		require_once PEA_PLUGIN_PATH . 'widgets/team.php';
-        require_once PEA_PLUGIN_PATH . 'widgets/accordion.php';
-		
-		$widgets_manager->register( new Pea_Testimonial() );
-		$widgets_manager->register( new Pea_Timeline() );
-		$widgets_manager->register( new Pea_Button() );
-		$widgets_manager->register( new Pea_Team() );
-		$widgets_manager->register( new Pea_Accordion() );
-		
+        require_once PEA_PLUGIN_PATH . 'widgets/button.php';
+        require_once PEA_PLUGIN_PATH . 'widgets/team.php';
+
+		$widgets_manager->register( new \Pea_Testimonial() );
+		$widgets_manager->register( new \Pea_Timeline() );
+		$widgets_manager->register( new \Pea_Button() );
+		$widgets_manager->register( new \Pea_Team() );
 	}
 
 	/**
@@ -49,7 +38,7 @@ class Plugin {
 	 */
 	public function register_widget_categories( $elements_manager ) {
 		$elements_manager->add_category(
-			'pedro',
+			'pedroea',
 			[
 				'title' => __( 'Pedro', 'pedro-for-elementor-addons' ), 
 			]
@@ -60,26 +49,28 @@ class Plugin {
 	 * Enqueue front-end scripts & styles
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'pea-swiper-css', PEA_PLUGIN_URL . 'assets/css/pea-swiper-bundle.min.css', [], '1.0.0', 'all' );
-		wp_enqueue_style( 'pea-main-css',   PEA_PLUGIN_URL . 'assets/css/pea-main.css', [], '1.0.0', 'all' );
+		
+		wp_enqueue_style( 'pedroea-swiper-css', PEDROEA_URL . 'assets/css/pedroea-swiper-bundle.min.css', [], '1.0.0', 'all' );
+		wp_enqueue_style( 'pedroea-main-css',   PEDROEA_URL . 'assets/css/pedroea-main.css', [], '1.0.0', 'all' );
 
 		wp_enqueue_script( 'pea-swiper-js', PEA_PLUGIN_URL . 'assets/js/pea-swiper-bundle.min.js', [ 'jquery' ], '1.0.0', true );
 		wp_enqueue_script( 'pea-main-js',   PEA_PLUGIN_URL . 'assets/js/pea-main.js', ['jquery'], '1.0.0', true );
+
 	}
 
 	/**
 	 * Enqueue Elementor Editor Js Files
 	 */
 	public function enqueue_editor_scripts(){
-		wp_enqueue_script( 'reskill-elementor-editor', PEA_PLUGIN_URL . 'assets/js/editor.min.js', ['elementor-editor','jquery'], '1.0.0', true);
+		wp_enqueue_script( 'pedroea-elementor-editor', PEDROEA_URL . 'assets/js/editor.min.js', ['elementor-editor','jquery'], '1.0.0', true);
 	}
 
 	/**
 	 * Enqueue Elementor Editor Styles
 	 */
 	public function enqueue_editor_styles() {
-		wp_enqueue_style( 'pea-editor-css', PEA_PLUGIN_URL . 'assets/css/pea-editor.css', [], '1.0.0','all');
-	}
+      wp_enqueue_style( 'pea-editor-css', PEA_PLUGIN_URL . 'assets/css/pea-editor.css', [], '1.0.0','all');
+    }
 
 	
 	/**
@@ -103,4 +94,4 @@ class Plugin {
 	}
 }
 
-Plugin::instance();
+PedroEA_Plugin::instance();
