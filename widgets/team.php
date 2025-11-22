@@ -168,7 +168,7 @@ class PedroEA_Team extends Widget_Base {
 	    $repeater = new Repeater();
 
 		$repeater->add_control(
-			'social_item',
+			'social_name',
 			[
 				'label'       => __( 'Social Name', 'pedro-for-elementor-addons' ),
 				'type'        => Controls_Manager::TEXT,
@@ -207,14 +207,17 @@ class PedroEA_Team extends Widget_Base {
 				'label'               => __( 'Social Icons', 'pedro-for-elementor-addons' ),
 				'type'                => Controls_Manager::REPEATER,
 				'fields'              => $repeater->get_controls(),
-				'default'             => [
+				'default' => [
 					[
-						'social_item' => __( 'Facebook', 'pedro-for-elementor-addons' ),
-						'social_icon' => [ 'value' => 'fa fa-facebook', 'library' => 'fa-solid' ],
+						'social_name' => __( 'Facebook', 'pedro-for-elementor-addons' ),
+						'social_icon' => [
+							'value'   => 'fab fa-facebook-f',
+							'library' => 'fa-brands',
+						],
 						'social_link' => [ 'url' => '#' ],
 					]
 				],
-				'title_field' => '{{{ social_item }}}',
+				'title_field' => '{{{ social_name }}}',
 			]
 		);
 
@@ -431,8 +434,6 @@ class PedroEA_Team extends Widget_Base {
 			]
 		);
 
-        $this->end_controls_tab();
-
         $this->end_controls_section();
 
       // Name, Job Title, Bio
@@ -445,7 +446,7 @@ class PedroEA_Team extends Widget_Base {
         );
 
         $this->add_responsive_control(
-            'Content Padding',
+            'content_padding',
             [
                 'label'      => __( 'Content Padding', 'pedro-for-elementor-addons' ),
                 'type'       => Controls_Manager::DIMENSIONS,
@@ -540,7 +541,6 @@ class PedroEA_Team extends Widget_Base {
                 'separator' => 'before',
 			]
 		);
-
 
        $this->add_control(
 			'short_bio_color',
@@ -741,33 +741,46 @@ class PedroEA_Team extends Widget_Base {
         <div class="pea-card-img">
             <img <?php echo wp_kses_post( $this->get_render_attribute_string( 'team_image_attr' ) ); ?>>
             <div class="pea-social-media">
-				<?php if ( $settings['show_social_profile'] ) : ?>
-					<ul class="pea-social-media">
-						<?php foreach ( $settings['social_list'] as $item ) : 
-							$icon = ! empty( $item['social_icon'] ) ? $item['social_icon'] : ['value' => 'fa fa-facebook'];
-							$link = ! empty( $item['social_link']['url'] ) ? $item['social_link']['url'] : '#';
-						?>
-							<li <?php echo wp_kses_post( $this->get_render_attribute_string( 'social_item_attr' ) ); ?>>
-								<?php if ( ! empty( $link ) ) : ?>
-									<a href="<?php echo esc_url( $link ); ?>">
-										<?php 
-										if ( ! empty( $icon ) ) {
-											
-											echo wp_kses_post( Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] ) ); 
-										}
-										?>
-									</a>
-							<?php endif; ?>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				<?php endif; ?>
-            </div>
+			<?php if ( ! empty( $settings['show_social_profile'] ) ) : ?>
+				<ul class="pea-social-media">
+					<?php foreach ( $settings['social_list'] as $item ) :
+
+						// Ensure a valid icon exists
+						$icon = $item['social_icon'] ?? [
+							'value'   => 'fab fa-facebook-f',
+							'library' => 'fa-brands',
+						];
+
+						// If 'value' is empty, force Facebook fallback
+						if ( empty( $icon['value'] ) ) {
+							$icon = [
+								'value'   => 'fab fa-facebook-f',
+								'library' => 'fa-brands',
+							];
+						}
+
+						// Ensure link exists
+						$link = $item['social_link']['url'] ?? '#';
+					?>
+						<li <?php echo $this->get_render_attribute_string( 'social_item_attr' ); ?>>
+							<a href="<?php echo esc_url( $link ); ?>">
+								<?php 
+								// Render the icon safely
+								if ( ! empty( $icon['value'] ) ) {
+									echo Icons_Manager::render_icon( $icon, [ 'aria-hidden' => 'true' ] );
+								}
+								?>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</div>
         </div>
         <div class="pea-card-content">
             <h4 class="pea-team-title"><a href="#"><?php echo esc_html( $settings['team_name'] ?? 'Ema Jackson' ); ?></a></h4>
-            <span class="pea-team-position"><?php echo esc_html( $settings['team_position'] ?? 'Project Manager' ); ?></span>
-            <p class="pea-short-disc"><?php echo esc_html( $settings['team_description'] ?? 'A small river named Duden flows by their place and supplies it with the necessary' ); ?></p>
+            <div class="pea-team-position"><?php echo esc_html( $settings['job_title'] ?? 'Project Manager' ); ?></div>
+            <p class="pea-short-disc"><?php echo esc_html( $settings['team_bio'] ?? 'A small river named Duden flows by their place and supplies it with the necessary' ); ?></p>
         </div>
     </div>
     <?php
