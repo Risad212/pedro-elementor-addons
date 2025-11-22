@@ -418,10 +418,9 @@
 
 .pea-team-card .pea-card-content .pea-position {
     font-weight: 500;
-    margin-top: 0;
     padding: 0;
     text-transform: capitalize;
-    display: block;
+    display: inline-block;
     font-size: 14px;
     color: rgba(0, 0, 0, .5);
     margin-bottom: 5px;
